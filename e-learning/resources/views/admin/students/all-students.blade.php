@@ -25,7 +25,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#"><i
-                                class="fas fa-times text-orange-red"></i>Close</a>
+                                class="fas fa-times text-orange-red"></i>Delete</a>
                         <a class="dropdown-item" href="#"><i
                                 class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
                         <a class="dropdown-item" href="#"><i
@@ -98,9 +98,9 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="#"><i
-                                                class="fas fa-times text-orange-red"></i>Close</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                                class="fas fa-times text-orange-red"></i>Delete</a>
+                                        <a class="dropdown-item" href={{route('student-detail')}}><i
+                                                class="fas fa-cogs text-dark-pastel-green"></i>Detail</a>
                                         <a class="dropdown-item" href="#"><i
                                                 class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
                                     </div>

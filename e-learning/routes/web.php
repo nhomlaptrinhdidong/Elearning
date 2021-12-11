@@ -21,29 +21,22 @@ Route::get('/', function () {
 
 
 
-
-Route::get('/admin', function () {
-    return view('admin/index');
-})->name('admin-index');
-
-
-
-
-
-
-
-
-Route::get('/admin/all-students', function () {
-    return view('admin/students/all-students');
-})->name('all-students');
-Route::get('/student-detail', function () {
-    return view('admin/students/student-detail');
-})->name('student-detail');
-Route::get('/add-student', function () {
-    return view('admin/students/add-student');
-})->name('add-student');
-Route::get('/search-student', function () {
-    return view('admin/students/search-student');
-})->name('search-student');
-
-
+Route::prefix('admin')->group(function(){
+    Route::get('/', function () {
+        return view('admin/index');
+    })->name('admin-index');
+    
+    Route::get('/all-students', function () {
+        return view('admin/students/all-students');
+    })->name('all-students');
+    Route::get('student-detail', function () {
+        return view('admin/students/student-detail');
+    })->name('student-detail');
+    Route::get('add-student', function () {
+        return view('admin/students/add-student');
+    })->name('add-student');
+    Route::get('search-student', function () {
+        return view('admin/students/search-student');
+    })->name('search-student');
+    
+});

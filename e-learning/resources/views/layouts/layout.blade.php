@@ -264,19 +264,12 @@
                                 <li class="nav-item">
                                     <a href="{{route('all-students')}}" class="nav-link"><i class="fas fa-angle-right"></i>All
                                         Students</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('student-detail')}}" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Student Details</a>
-                                </li>
+                                </li>                               
                                 <li class="nav-item">
                                     <a href="{{route('add-student')}}" class="nav-link"><i
                                             class="fas fa-angle-right"></i>Add Student</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{route('search-student')}}" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Search Student</a>
-                                </li>
+                                
                             </ul>
                         </li>
                         <li class="nav-item sidebar-nav-item">

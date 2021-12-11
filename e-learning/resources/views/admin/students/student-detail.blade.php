@@ -39,7 +39,7 @@
                         <h3 class="text-dark-medium font-medium">Jessia Rose</h3>
                         <div class="header-elements">
                             <ul>
-                                <li><a href="#"><i class="far fa-edit"></i></a></li>
+                                <li><a href={{route('add-student')}}><i class="far fa-edit"></i></a></li>
                                 <li><a href="#"><i class="fas fa-print"></i></a></li>
                                 <li><a href="#"><i class="fas fa-download"></i></a></li>
                             </ul>
