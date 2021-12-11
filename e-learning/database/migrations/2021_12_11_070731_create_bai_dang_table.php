@@ -15,10 +15,11 @@ class CreateBaiDangTable extends Migration
     {
         Schema::create('bai_dang', function (Blueprint $table) {
             $table->id();
+            $table->integer('loai_bai_dang_id');
             $table->string('ma_lop');
             $table->string('teu_de');
             $table->string('noi_dung');
-            $table->string('tap_tin_id');
+            $table->integer('tap_tin_id');
             $table->date('ngay_dang');
             $table->date('ngay_nop');
             $table->boolean('trang_thai');

@@ -17,7 +17,6 @@ class CreateLoaiBaiDangTable extends Migration
             $table->id();
             $table->string('ten');
             $table->boolean('trang_thai');
-            $table->integer('bai_dang_id');
             $table->timestamps();
             $table->softDeletes();
         });

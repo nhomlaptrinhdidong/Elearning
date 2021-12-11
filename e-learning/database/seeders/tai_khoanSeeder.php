@@ -2,13 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin;
-use App\Models\GiaoVien;
-use App\Models\SinhVien;
+use App\Models\LoaiTaiKhoan;
 use App\Models\TaiKhoan;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-
 
 class tai_khoanSeeder extends Seeder
 {
@@ -19,35 +16,20 @@ class tai_khoanSeeder extends Seeder
      */
     public function run()
     {
-        $dsSinhVien=SinhVien::all();
-        foreach($dsSinhVien as $SinhVien)
+        $dsLoaiTaiKhoan=LoaiTaiKhoan::all();
+        foreach($dsLoaiTaiKhoan as $LoaiTaiKhoan)
         {
             $TaiKhoan = new TaiKhoan();
+            $TaiKhoan->username = 'user1';
+            $TaiKhoan->ho_ten = 'ten_user1';
+            $TaiKhoan->sdt = '0000000001';
+            $TaiKhoan->dia_chi = 'dia_chi_user1';
+            $TaiKhoan->email = 'user1@gmail.com';
+            $TaiKhoan->hinh_anh = '1.jpg';
+            $TaiKhoan->gioi_tinh = 1;
+            $TaiKhoan->token = 'token_user1';
             $TaiKhoan->password = Str::random(10);
-            $TaiKhoan->tai_khoan_id = $SinhVien->ten_dang_nhap;
-            $TaiKhoan->loai_tai_khoan = 3;
-            $TaiKhoan->trang_thai = true;
-            $TaiKhoan->save();
-        }
-
-        $dsGiaoVien=GiaoVien::all();
-        foreach($dsGiaoVien as $GiaoVien)
-        {
-            $TaiKhoan = new TaiKhoan();
-            $TaiKhoan->password = Str::random(10);
-            $TaiKhoan->tai_khoan_id = $GiaoVien->ten_dang_nhap;
-            $TaiKhoan->loai_tai_khoan = 2;
-            $TaiKhoan->trang_thai = true;
-            $TaiKhoan->save();
-        }
-
-        $dsAdmin=Admin::all();
-        foreach($dsAdmin as $Admin)
-        {
-            $TaiKhoan = new TaiKhoan();
-            $TaiKhoan->password = Str::random(10);
-            $TaiKhoan->tai_khoan_id = $Admin->ten_dang_nhap;
-            $TaiKhoan->loai_tai_khoan = 1;
+            $TaiKhoan->loai_tai_khoan_id =$LoaiTaiKhoan->ten_loai;
             $TaiKhoan->trang_thai = true;
             $TaiKhoan->save();
         }

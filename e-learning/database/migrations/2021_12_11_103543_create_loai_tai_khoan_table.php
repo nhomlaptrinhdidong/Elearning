@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminTable extends Migration
+class CreateLoaiTaiKhoanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,12 @@ class CreateAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('loai_tai_khoan', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_dang_nhap');
-            $table->string('ho_ten');
-            $table->string('sdt');
-            $table->string('email');
-            $table->string('hinh_anh');
-            $table->string('dia_chi');
-            $table->integer('gioi_tinh');
+            $table->string('ten_loai');
             $table->boolean('trang_thai');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -35,6 +29,6 @@ class CreateAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('loai_tai_khoan');
     }
 }

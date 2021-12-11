@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGiaoVienTable extends Migration
+class CreateChiTietLopTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateGiaoVienTable extends Migration
      */
     public function up()
     {
-        Schema::create('giao_vien', function (Blueprint $table) {
+        Schema::create('chi_tiet_lop', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_dang_nhap');
-            $table->string('ho_ten');
-            $table->string('sdt');
-            $table->string('email');
-            $table->string('hinh_anh');
-            $table->string('dia_chi');
-            $table->integer('gioi_tinh');
+            $table->string('lop_id');
+            $table->string('tai_khoan_id');
             $table->boolean('trang_thai');
-            $table->softDeletes();
+            $table->integer('cach_tham_gia');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -35,6 +31,6 @@ class CreateGiaoVienTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('giao_vien');
+        Schema::dropIfExists('chi_tiet_lop');
     }
 }

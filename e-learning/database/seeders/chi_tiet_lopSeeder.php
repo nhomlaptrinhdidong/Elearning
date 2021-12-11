@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class lop_svSeeder extends Seeder
+class chi_tiet_lopSeeder extends Seeder
 {
     /**
      * Run the database seeds.

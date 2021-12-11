@@ -19,7 +19,6 @@ class CreateLopTable extends Migration
             $table->string('ten_lop');
             $table->string('mau_sac');
             $table->string('banner');
-            $table->string('giao_vien_id');
             $table->boolean('trang_thai');
             $table->softDeletes();
             $table->timestamps();
