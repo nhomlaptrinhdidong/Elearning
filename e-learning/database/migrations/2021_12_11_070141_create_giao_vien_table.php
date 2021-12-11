@@ -1,11 +1,10 @@
 <?php
 
-use Facade\Ignition\Tabs\Tab;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGiangViensTable extends Migration
+class CreateGiaoVienTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +13,18 @@ class CreateGiangViensTable extends Migration
      */
     public function up()
     {
-        Schema::create('giang_vien', function (Blueprint $table) {
+        Schema::create('giao_vien', function (Blueprint $table) {
             $table->id();
-            $table->string('ho_ten');
             $table->string('ten_dang_nhap');
-            $table->string('mat_khau');  
-            $table->string('email');  
-            $table->bigInteger('idKhoa')->unsigned(); 
+            $table->string('ho_ten');
+            $table->string('sdt');
+            $table->string('email');
+            $table->string('hinh_anh');
+            $table->string('dia_chi');
+            $table->integer('gioi_tinh');
+            $table->boolean('trang_thai');
+            $table->softDeletes();
             $table->timestamps();
-            $table->softDeletes();   
         });
     }
 
@@ -33,6 +35,6 @@ class CreateGiangViensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('giang_viens');
+        Schema::dropIfExists('giao_vien');
     }
 }

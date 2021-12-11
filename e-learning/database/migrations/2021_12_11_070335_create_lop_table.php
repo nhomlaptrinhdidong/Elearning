@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKhoaTable extends Migration
+class CreateLopTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateKhoaTable extends Migration
      */
     public function up()
     {
-        Schema::create('khoa', function (Blueprint $table) {
+        Schema::create('lop', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('ma_lop');
+            $table->string('ten_lop');
+            $table->string('mau_sac');
+            $table->string('banner');
+            $table->string('giao_vien_id');
+            $table->boolean('trang_thai');
+            $table->softDeletes();
             $table->timestamps();
-            $table->softDeletes();   
         });
     }
 
@@ -28,6 +33,6 @@ class CreateKhoaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('khoa');
+        Schema::dropIfExists('lop');
     }
 }
