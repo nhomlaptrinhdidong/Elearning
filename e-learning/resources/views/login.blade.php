@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="css/normalize.css">
     <!-- Main CSS -->
@@ -40,23 +41,30 @@
                 <div class="item-logo">
                     <img src="img/logo2.png" alt="logo">
                 </div>
-                <form action="{{route('admin-index')}}" class="login-form">
+                <form action="{{route('handle-login')}}" class="login-form" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" placeholder="Enter usrename" class="form-control">
+                        <label>Email</label>
+                        <input type="text" placeholder="Enter email" name="email" class="form-control">
                         <i class="far fa-envelope"></i>
                     </div>
+                    @error('email')
+                        <span>{{$message}}</span>
+                    @enderror
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="text" placeholder="Enter password" class="form-control">
+                        <input type="text" placeholder="Enter password" name="password" class="form-control">
                         <i class="fas fa-lock"></i>
                     </div>
+                    @error('password')
+                        <span>{{$message}}</span>
+                    @enderror
                     <div class="form-group d-flex align-items-center justify-content-between">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="remember-me">
                             <label for="remember-me" class="form-check-label">Remember Me</label>
                         </div>
-                        <a href="#" class="forgot-btn">Forgot Password?</a>
+                        <a href={{ route('forget-password') }} class="forgot-btn">Forgot Password?</a>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="login-btn">Login</button>
@@ -88,7 +96,29 @@
     <script src="js/jquery.scrollUp.min.js"></script>
     <!-- Custom Js -->
     <script src="js/main.js"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        @if(Session::has('message'))
+            var type="{{Session::get('alert-type','info')}}"
+    
+            switch(type){
+                case 'info':
+                     toastr.info("{{ Session::get('message') }}");
+                     break;
+                case 'success':
+                    toastr.success("{{ Session::get('message') }}");
+                    break;
+                 case 'warning':
+                    toastr.warning("{{ Session::get('message') }}");
+                    break;
+                case 'error':
+                    toastr.error("{{ Session::get('message') }}");
+                    break;
+            }
+        @endif
+    </script>
+        
 </body>
 
 
