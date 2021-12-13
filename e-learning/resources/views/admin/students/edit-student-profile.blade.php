@@ -43,7 +43,7 @@
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Gender *</label>
                         <select name="gioi_tinh" class="select2">
-                            <option value="">Please Select Gender</option>
+                            <option value="">----- Please Select Gender -----</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
                         </select>
@@ -52,8 +52,7 @@
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Account Type *</label>
                         <select name="loai_tai_khoan_id" class="select2">
-                            <option value="">Please Select Type</option>
-                            <option value="1">Admin</option>
+                            <option value="">----- Please Select Type -----</option>
                             <option value="2">Teacher</option>
                             <option value="3">Student</option>
                         </select>     
@@ -61,7 +60,7 @@
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Status *</label>
                         <select name="trang_thai" class="select2">
-                            <option value="">Please Select Status</option>
+                            <option value="">----- Please Select Status -----</option>
                             <option value="1">Active</option>
                             <option value="2">Lock</option>
                         </select>     

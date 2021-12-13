@@ -15,7 +15,6 @@ class DangNhapController extends Controller
     }
     public function handleLogin(LoginRequest $req){
 
-        $taikhoan = TaiKhoan::where('email', $req->email)->first();
         if(Auth::attempt(['email'=> $req->email,'password'=>$req->password]))
         {
             $user = Auth::user();

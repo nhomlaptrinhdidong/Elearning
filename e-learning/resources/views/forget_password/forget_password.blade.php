@@ -47,11 +47,7 @@
                         <label>Email</label>
                         <input type="text" placeholder="Enter email" name="email" class="form-control">
                         <i class="far fa-envelope"></i>
-                    </div>
-                    @error('email')
-                    <span>{{$message}}</span>
-                    @enderror
-                    
+                    </div>                 
                     <div class="form-group">
                         <button type="submit" class="login-btn">Submit</button>
                     </div>

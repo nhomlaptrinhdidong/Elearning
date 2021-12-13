@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class="heading-layout1">
                     <div class="item-title">
-                        <h3>All Class Schedules</h3>
+                        <h3>All Classroom</h3>
                     </div>
                    <div class="dropdown">
                         <a class="dropdown-toggle" href="#" role="button" 
@@ -59,14 +59,13 @@
                                     </div>
                                 </th>
                                 <th>Photo</th>
+                                <th>Teacher</th>
                                 <th>Name</th>
-                                <th>Gender</th>
-                                <th>Class</th>
-                                <th>Section</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Phone</th>
-                                <th>E-mail</th>
+                                <th>Discription</th>
+                                <th>Date created</th>
+                                <th>Students</th>
+                                <th>Status</th>
+                                
                                 <th></th>
                             </tr>
                         </thead>
@@ -947,9 +946,6 @@
             </div>
         </div>
         <!-- Class Table Area End Here -->
-        <footer class="footer-wrap-layout1">
-            <div class="copyright">© Copyrights <a href="#">akkhor</a> 2019. All rights reserved. Designed by <a href="#">PsdBosS</a></div>
-        </footer>
     </div>
 </div>
 @endsection

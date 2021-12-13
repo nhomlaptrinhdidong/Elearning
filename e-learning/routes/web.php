@@ -27,19 +27,15 @@ Route::post('/reset-password', [MailerController::class, "handelResetPassword"])
 
 
 Route::middleware('auth')->prefix('admin')->group(function(){
-    Route::get('/', [AdminController::class, 'index'] )->name('admin-index');   
+    Route::get('/', [AdminController::class, 'index'] )->name('admin-index');  
+    Route::get('/add-account', [AdminController::class, 'addAccount'] )->name('add-account');
+    Route::post('/add-account', [AdminController::class, 'saveAccount'] )->name('save-account');   
     Route::prefix('student')->group(function(){
         Route::get('/all-students', [AdminController::class, 'allStudent'])->name('all-students');
         Route::get('student-detail/{username}', [AdminController::class, 'studentDetail'])->name('student-detail');
         Route::get('edit-student-profile/{username}', [AdminController::class, 'editStudentProfile'])->name('edit-student-profile');
         Route::post('edit-student-profile/{username}', [AdminController::class, 'saveEditStudentProfile'])->name('save-edit-student-profile');
         Route::get('delete-student/{username}', [AdminController::class, 'deleteStudent'])->name('delete-student');
-        
-        
-        
-        Route::get('add-student', function () {
-            return view('admin/students/add-student');
-        })->name('add-student');
         Route::get('search-student', function () {
             return view('admin/students/search-student');
         })->name('search-student');
@@ -51,9 +47,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::get('/all-teacher', [AdminController::class, 'allTeacher'])->name('all-teachers');
         Route::get('teacher-detail/{username}', [AdminController::class, 'teacherDetail'])->name('teacher-detail');
         Route::get('edit-teacher-profile/{username}', [AdminController::class, 'editTeacherProfile'])->name('edit-teacher-profile');
-        Route::get('add-teacher', function () {
-            return view('admin/teachers/add-teacher');
-        })->name('add-teacher');
+        Route::post('edit-teacher-profile/{username}', [AdminController::class, 'saveEditTeacherProfile'])->name('save-edit-teacher-profile');
         Route::get('search-teacher', function () {
             return view('admin/teachers/search-teacher');
         })->name('search-teacher');

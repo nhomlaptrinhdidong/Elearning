@@ -2,15 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AccountRequest;
 use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 class AdminController extends Controller
 {
     function index(){
         return view('admin/index');
     }
-    function allStudent(){
+    public function addAccount(){
+        return view('admin/add-account');
+    }
+    public function saveAccount(Request $req){
+        $usernameacc = Str::random(6);
+        $uploadFile = $req->hinh_anh;
+        $account = new TaiKhoan();
+        $account->username = $usernameacc;
+        $account->ho_ten = $req->ho_ten;
+        $account->sdt = $req->sdt;
+        $account->dia_chi = $req->dia_chi;
+        $account->email = $req->email;
+        $account->loai_tai_khoan_id = $req->loai_tai_khoan_id;
+        if($account->loai_tai_khoan_id==3){
+            $folder= "students";
+        }else{
+            $folder= "teachers";
+        }
+        $uploadFile->storeAs('img/'.$folder.'/',$usernameacc.'.'.$uploadFile->extension());
+        $account->hinh_anh = $usernameacc.'.'.$uploadFile->extension();
+        $account->gioi_tinh = $req->gioi_tinh;
+        $account->ngay_sinh = date('Y/m/d', strtotime($req->ngay_sinh));
+        $account->trang_thai = $req->trang_thai; 
+        $account->save();
+        return redirect()->back();
+    }
+    public function allStudent(){
         $dsSinhVien = TaiKhoan::where('loai_tai_khoan_id','3')->get();
         //dd($dsSinhVien);
         return view('admin/students/all-students', compact('dsSinhVien'));
@@ -36,6 +63,7 @@ class AdminController extends Controller
         $student->ngay_sinh = date('Y/m/d', strtotime($req->ngay_sinh));
         $student->loai_tai_khoan_id = $req->loai_tai_khoan_id;
         $student->trang_thai = $req->trang_thai; 
+        $student->save();
         return view('admin/students/student-detail', compact('student'));
     }
     public function deleteStudent($username){
@@ -62,6 +90,24 @@ class AdminController extends Controller
         $teacher = TaiKhoan::where('username',$username)->first();
         return view('admin/teachers/edit-teacher-profile', compact('teacher'));
     }
+    public function saveEditTeacherProfile(Request $req, $usernameacc) {
+        $uploadFile = $req->hinh_anh;
+        $uploadFile->storeAs('img/teachers',$usernameacc.'.'.$uploadFile->extension());
+        $teacher = TaiKhoan::where('username',$usernameacc)->first();
+        $teacher->ho_ten = $req->ho_ten;
+        $teacher->sdt = $req->sdt;
+        $teacher->dia_chi = $req->dia_chi;
+        $teacher->email = $req->email;
+        $teacher->hinh_anh = $usernameacc.'.'.$uploadFile->extension();
+        $teacher->gioi_tinh = $req->gioi_tinh;
+        $teacher->ngay_sinh = date('Y/m/d', strtotime($req->ngay_sinh));
+        $teacher->loai_tai_khoan_id = $req->loai_tai_khoan_id;
+        $teacher->trang_thai = $req->trang_thai;
+        $teacher->save(); 
+        return view('admin/teachers/teacher-detail', compact('teacher'));
+    }
+
+
     function allClassroom(){
         //$dsClassroom = Cl::where('loai_tai_khoan_id','3')->get();
         //dd($dsSinhVien);

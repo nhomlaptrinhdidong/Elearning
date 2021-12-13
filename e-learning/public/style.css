@@ -154,6 +154,10 @@ h6 {
     height: 40px;
 }
 
+.mess {
+    color: red;
+}
+
 .card {
     padding-bottom: 30px;
     border: none;
@@ -2701,6 +2705,7 @@ ul {
         position: static;
         overflow: visible;
         width: auto;
+        height: auto;
     }
 }
 
