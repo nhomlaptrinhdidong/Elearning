@@ -20,7 +20,7 @@ Route::post('/',[DangNhapController::class, 'handleLogin'])->name('handle-login'
 Route::get('/logout',[DangNhapController::class, 'logout'])->name('logout');
 
 Route::get('/forget-password', [MailerController::class, "forgetPassword"])->name("forget-password");
-Route::post('/forget-password', [MailerController::class, "composeEmail"])->name("send-email");
+Route::post('/forget-password', [MailerController::class, "sendEmail"])->name("send-email");
 
 Route::get('/reset-password', [MailerController::class, "resetPassword"])->name("reset-password");
 Route::post('/reset-password', [MailerController::class, "handelResetPassword"])->name("handle-reset-password");
@@ -90,6 +90,4 @@ Route::prefix('student')->group(function(){
     // })->name('search-student');
     
 });
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

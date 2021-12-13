@@ -14,7 +14,8 @@ class MailerController extends Controller
     public function forgetPassword(){
         return view('forget_password/forget_password');
     }
-    public function composeEmail(LoginRequest $req){
+    public function sendEmail(Request $req){
+        
         $email = $req->email;
         $checkUser = TaiKhoan::where('email',$email)->first();
         if($checkUser){
@@ -34,14 +35,13 @@ class MailerController extends Controller
             'message' => 'Gửi email thành công !',
             'alert-type' => 'success'
         );
-            return redirect()->route('forget-password')->with($notification);
         }else{
             $notification = array(
                 'message' => 'Kiểm tra lại email !',
                 'alert-type' => 'warning'
             );
-            return redirect()->back()->with($notification);
         }
+        return redirect()->back()->with($notification);
     }
     public function resetPassword(Request $req){
             return view('forget_password/reset_password', compact('req'));
@@ -62,7 +62,7 @@ class MailerController extends Controller
                 'token'=>$token,
                 'email'=>$email
             ]
-            )->first();
+            )->first(); 
             $checkUser->password = Hash::make($req->password);
             $checkUser->token = '';
             $checkUser->save();   

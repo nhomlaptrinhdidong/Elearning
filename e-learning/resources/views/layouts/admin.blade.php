@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href={{ asset('img/favicon.png')}}>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <!-- Normalize CSS -->
     <link rel="stylesheet" href={{ asset('css/normalize.css')}}>
     <!-- Main CSS -->
@@ -406,28 +405,6 @@
     <script src={{asset('js/Chart.min.js')}}></script>
     <!-- Custom Js -->
     <script src={{asset('js/main.js')}}></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script>
-        @if(Session::has('message'))
-            var type="{{Session::get('alert-type','info')}}"
-    
-            switch(type){
-                case 'info':
-                     toastr.info("{{ Session::get('message') }}");
-                     break;
-                case 'success':
-                    toastr.success("{{ Session::get('message') }}");
-                    break;
-                 case 'warning':
-                    toastr.warning("{{ Session::get('message') }}");
-                    break;
-                case 'error':
-                    toastr.error("{{ Session::get('message') }}");
-                    break;
-            }
-        @endif
-    </script>
 </body> 
 
 
