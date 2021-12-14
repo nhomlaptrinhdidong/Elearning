@@ -32,7 +32,7 @@ class AccountRequest extends FormRequest
             'ho_ten'=>'required',
             'hinh_anh'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
             'email' => 'required|email|unique:App\Models\TaiKhoan,email',
-            'sdt' => 'required|numeric|min:9|max:10|unique:App\Models\TaiKhoan,sdt',
+            'sdt' => 'required|numeric|min:9|unique:App\Models\TaiKhoan,sdt',
             'ngay_sinh'=> 'required|date_format:"d/m/Y"|before:"01/01/2004"'
 
         ];
@@ -53,7 +53,7 @@ class AccountRequest extends FormRequest
             'sdt.unique' => 'Phone number already exists',
             'sdt.numeric' => 'Phone number must be number',
             'sdt.min' => 'Phone number must be at least min:',
-            'sdt.max' => 'Phone number  not be greater than max:',
+            //'sdt.max' => 'Phone number  not be greater than max:',
 
             'hinh_anh.required' => 'Please choose avatar',
             'hinh_anh.image' => 'Avater must be an image.',

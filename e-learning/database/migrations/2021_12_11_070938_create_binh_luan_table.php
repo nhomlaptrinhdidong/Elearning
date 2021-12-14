@@ -15,7 +15,7 @@ class CreateBinhLuanTable extends Migration
     {
         Schema::create('binh_luan', function (Blueprint $table) {
             $table->id();
-            $table->string('noi_dung');
+            $table->string('noi_dung')->require;
             $table->integer('tap_tin_id');
             $table->date('ngay_dang');
             $table->integer('bai_dang_id');

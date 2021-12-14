@@ -31,6 +31,19 @@
     <!-- Modernize js -->
     <script src={{asset('js/modernizr-3.6.0.min.js')}}></script>
 
+    <link rel="stylesheet" href={{asset('/fontawesome-free-5.13.1-web/css/all.min.css')}}>
+    <!--Link FontAwesome End-->
+
+    <!--Link CSS Start-->
+    <link rel="stylesheet" href={{asset('/css/style.css')}}>
+    <!--Link CSS End-->
+
+    <!--Link Font Poppins Start-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -40,8 +53,9 @@
     <!-- Preloader End Here -->
     <div id="wrapper" class="wrapper bg-ash">
         <!-- Header Menu Area Start Here -->
+
         <div class="navbar navbar-expand-md header-menu-one bg-light">
-            <div class="nav-bar-header-one">
+            <div  class="nav-bar-header-one">
                 <div class="header-logo">
                     <a href="index.html">
                         <img src={{asset('img/logo.png')}} alt="logo">
@@ -86,7 +100,7 @@
                                 <span>Admin</span>
                             </div> 
                             <div class="admin-img">
-                            <img class="img-circle" src={{asset('img/figure/'.auth()->user()->hinh_anh.'')}} alt="Admin">
+                            <img class="img-circle" src={{asset('img/users/'.auth()->user()->hinh_anh.'')}} alt="Admin">
                             </div> 
 
                         </a>
@@ -288,6 +302,10 @@
             @yield('admin-detail')
             @yield('edit-profile')
             @yield('all-classrooms')
+            @yield('classroom-detail')
+            @yield('all-members')
+
+
             @yield('add-account')
             
 

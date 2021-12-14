@@ -32,7 +32,7 @@
             </div>
             <div class="single-info-details">
                 <div class="item-img">
-                    <img src={{asset('img/students/'.$student->hinh_anh.'')}} alt="student">
+                    <img src={{asset('img/users/'.$student->hinh_anh.'')}} alt="student">
                 </div>
                 <div class="item-content">
                     <div class="header-inline item-header">

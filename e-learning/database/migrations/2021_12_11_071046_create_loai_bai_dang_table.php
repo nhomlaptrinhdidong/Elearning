@@ -15,7 +15,7 @@ class CreateLoaiBaiDangTable extends Migration
     {
         Schema::create('loai_bai_dang', function (Blueprint $table) {
             $table->id();
-            $table->string('ten');
+            $table->string('ten')->require;
             $table->boolean('trang_thai');
             $table->timestamps();
             $table->softDeletes();

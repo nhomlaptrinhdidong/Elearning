@@ -15,10 +15,11 @@ class CreateLopTable extends Migration
     {
         Schema::create('lop', function (Blueprint $table) {
             $table->id();
-            $table->string('ma_lop');
-            $table->string('ten_lop');
+            $table->string('ma_lop')->require;
+            $table->string('ten_lop')->require;
             $table->string('mau_sac');
             $table->string('banner');
+            $table->string('mo_ta');
             $table->boolean('trang_thai');
             $table->softDeletes();
             $table->timestamps();

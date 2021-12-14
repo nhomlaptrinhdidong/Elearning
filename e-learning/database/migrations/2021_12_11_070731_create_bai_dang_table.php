@@ -17,7 +17,7 @@ class CreateBaiDangTable extends Migration
             $table->id();
             $table->integer('loai_bai_dang_id');
             $table->string('ma_lop');
-            $table->string('teu_de');
+            $table->string('tieu_de');
             $table->string('noi_dung');
             $table->integer('tap_tin_id');
             $table->date('ngay_dang');

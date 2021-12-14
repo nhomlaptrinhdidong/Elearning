@@ -41,7 +41,9 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         })->name('search-student');
     });
     Route::prefix('classroom')->group(function(){
-        Route::get('/all-classrooms', [AdminController::class, 'allClassroom'])->name('all-classrooms');      
+        Route::get('/all-classrooms', [AdminController::class, 'allClassroom'])->name('all-classrooms'); 
+        Route::get('/all-members/{ma_lop}', [AdminController::class, 'allMembers'])->name('all-members');       
+        Route::get('/classroom-detail/{ma_lop}', [AdminController::class, 'classroomDetail'])->name('classroom-detail');        
     });
     Route::prefix('teacher')->group(function(){
         Route::get('/all-teacher', [AdminController::class, 'allTeacher'])->name('all-teachers');

@@ -15,12 +15,13 @@ class CreateTaiKhoanTable extends Migration
     {
         Schema::create('tai_khoan', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
+            $table->string('username')->unique;
             $table->string('ho_ten');
             $table->string('sdt');
             $table->string('dia_chi');
             $table->string('email');
             $table->string('hinh_anh');
+            $table->date('ngay_sinh');
             $table->integer('gioi_tinh');
             $table->string('token');
             $table->string('password');

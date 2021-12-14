@@ -14,10 +14,18 @@ class loai_tai_khoanSeeder extends Seeder
      */
     public function run()
     {
-            $Loaitk = new LoaiTaiKhoan();
-            $Loaitk->ten_loai = "Admin";
-            $Loaitk->trang_thai = true; 
-            
-            $Loaitk->save();
+            // $Admin = new LoaiTaiKhoan();
+            // $Admin->ten_loai = "Admin";
+            // $Admin->trang_thai = true;
+            // $Admin->save();
+
+            // $User = new LoaiTaiKhoan();
+            // $User->ten_loai = "User";
+            // $User->trang_thai = true;
+            // $User->save();
+            $User = new LoaiTaiKhoan();
+            $User->ten_loai = "Student";
+            $User->trang_thai = true;
+            $User->save();
     }
 }

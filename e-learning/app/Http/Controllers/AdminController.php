@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AccountRequest;
+use App\Models\Lop;
 use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -14,27 +15,30 @@ class AdminController extends Controller
     public function addAccount(){
         return view('admin/add-account');
     }
-    public function saveAccount(Request $req){
+    public function saveAccount(AccountRequest $req){
         $usernameacc = Str::random(6);
-        $uploadFile = $req->hinh_anh;
-        $account = new TaiKhoan();
-        $account->username = $usernameacc;
-        $account->ho_ten = $req->ho_ten;
-        $account->sdt = $req->sdt;
-        $account->dia_chi = $req->dia_chi;
-        $account->email = $req->email;
-        $account->loai_tai_khoan_id = $req->loai_tai_khoan_id;
-        if($account->loai_tai_khoan_id==3){
-            $folder= "students";
-        }else{
-            $folder= "teachers";
+        $usernameCheck = TaiKhoan::where('usernamr',$usernameacc)->first();
+        if($usernameCheck){
+            $usernameacc = Str::random(6);
         }
-        $uploadFile->storeAs('img/'.$folder.'/',$usernameacc.'.'.$uploadFile->extension());
-        $account->hinh_anh = $usernameacc.'.'.$uploadFile->extension();
-        $account->gioi_tinh = $req->gioi_tinh;
-        $account->ngay_sinh = date('Y/m/d', strtotime($req->ngay_sinh));
-        $account->trang_thai = $req->trang_thai; 
-        $account->save();
+        else
+        {
+
+            $uploadFile = $req->hinh_anh;
+            $account = new TaiKhoan();
+            $account->username = $usernameacc;
+            $account->ho_ten = $req->ho_ten;
+            $account->sdt = $req->sdt;
+            $account->dia_chi = $req->dia_chi;
+            $account->email = $req->email;
+            $account->loai_tai_khoan_id = $req->loai_tai_khoan_id;
+            $uploadFile->storeAs('img/users',$usernameacc.'.'.$uploadFile->extension());
+            $account->hinh_anh = $usernameacc.'.'.$uploadFile->extension();
+            $account->gioi_tinh = $req->gioi_tinh;
+            $account->ngay_sinh = date('Y/m/d', strtotime($req->ngay_sinh));
+            $account->trang_thai = $req->trang_thai; 
+            $account->save();
+        }
         return redirect()->back();
     }
     public function allStudent(){
@@ -52,7 +56,7 @@ class AdminController extends Controller
     }
     public function saveEditStudentProfile(Request $req, $usernameacc) {
         $uploadFile = $req->hinh_anh;
-        $uploadFile->storeAs('img/students',$usernameacc.'.'.$uploadFile->extension());
+        $uploadFile->storeAs('img/users',$usernameacc.'.'.$uploadFile->extension());
         $student = TaiKhoan::where('username',$usernameacc)->first();
         $student->ho_ten = $req->ho_ten;
         $student->sdt = $req->sdt;
@@ -92,7 +96,7 @@ class AdminController extends Controller
     }
     public function saveEditTeacherProfile(Request $req, $usernameacc) {
         $uploadFile = $req->hinh_anh;
-        $uploadFile->storeAs('img/teachers',$usernameacc.'.'.$uploadFile->extension());
+        $uploadFile->storeAs('img/users',$usernameacc.'.'.$uploadFile->extension());
         $teacher = TaiKhoan::where('username',$usernameacc)->first();
         $teacher->ho_ten = $req->ho_ten;
         $teacher->sdt = $req->sdt;
@@ -108,9 +112,18 @@ class AdminController extends Controller
     }
 
 
-    function allClassroom(){
-        //$dsClassroom = Cl::where('loai_tai_khoan_id','3')->get();
-        //dd($dsSinhVien);
-        return view('admin/classrooms/all-classroom');
+    public function allClassroom(){
+        $dsClassroom = Lop::all();
+        return view('admin/classrooms/all-classroom',compact('dsClassroom'));
     }
+    public function classroomDetail($ma_lop){
+        $dsClassroom = Lop::where('ma_lop',$ma_lop)->first();
+        return view('admin/classrooms/classroom-detail', compact('dsClassroom'));
+    }
+    public function allMembers($ma_lop){
+        $dsClassroom = Lop::where('ma_lop',$ma_lop)->first();
+        $taiKhoan = new TaiKhoan();
+        return view('admin/classrooms/all-members', compact('dsClassroom', 'taiKhoan'));
+    }
+
 }

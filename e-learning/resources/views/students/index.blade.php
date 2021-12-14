@@ -16,18 +16,18 @@
     <div class="container container-body">
         <div class="grid-container">
             <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
                     <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
+                    </a>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -38,18 +38,18 @@
                 </div>
             </div>
             <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
-                    <a href="details_page.html">
+                    <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
+                    </a>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -58,20 +58,19 @@
                         <a href="#"><i class="far fa-folder"></i></a>
                     </span>
                 </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+            </div><div class="grid__items">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
-                    <a href="details_page.html">
+                    <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
+                    </a>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -80,20 +79,19 @@
                         <a href="#"><i class="far fa-folder"></i></a>
                     </span>
                 </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+            </div><div class="grid__items">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
-                    <a href="details_page.html">
+                    <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
+                    </a>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -102,20 +100,19 @@
                         <a href="#"><i class="far fa-folder"></i></a>
                     </span>
                 </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+            </div><div class="grid__items">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
-                    <a href="details_page.html">
+                    <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
+                    </a>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -124,20 +121,19 @@
                         <a href="#"><i class="far fa-folder"></i></a>
                     </span>
                 </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+            </div><div class="grid__items">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
-                    <a href="details_page.html">
+                    <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
+                    </a>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -146,20 +142,19 @@
                         <a href="#"><i class="far fa-folder"></i></a>
                     </span>
                 </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+            </div><div class="grid__items">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
-                    <a href="details_page.html">
+                    <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
+                    </a>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -168,20 +163,19 @@
                         <a href="#"><i class="far fa-folder"></i></a>
                     </span>
                 </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+            </div><div class="grid__items">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
-                    <a href="details_page.html">
+                    <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
+                    </a>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -190,86 +184,19 @@
                         <a href="#"><i class="far fa-folder"></i></a>
                     </span>
                 </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
+            </div><div class="grid__items">
+                <img class="img-header-box"  src={{asset('img/classrooms/bg_2.jpg')}} height="120px" width="100%" alt="">
                 <div class="grid__items--title">
-                    <a href="details_page.html">
+                    <a href="detail_page.html">
                         <p class="name-class">CĐ TH 19PM</p>
                         <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
                     </a>
                     <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
-                        alt=""></a>
-                <div class="grid__items--content">
-                    <div></div>
-                    <span>
-                        <a href="#"><i class="far fa-id-badge"></i></a>
-                        <a href="#"><i class="far fa-folder"></i></a>
-                    </span>
-                </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
-                <div class="grid__items--title">
-                    <a href="details_page.html">
-                        <p class="name-class">CĐ TH 19PM</p>
-                        <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
+                    <a href="#" class="grid__items--poss">
+                        Dương H.Phước
                     </a>
-                    <i class="fas fa-ellipsis-v"></i>
                 </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
-                        alt=""></a>
-                <div class="grid__items--content">
-                    <div></div>
-                    <span>
-                        <a href="#"><i class="far fa-id-badge"></i></a>
-                        <a href="#"><i class="far fa-folder"></i></a>
-                    </span>
-                </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
-                <div class="grid__items--title">
-                    <a href="details_page.html">
-                        <p class="name-class">CĐ TH 19PM</p>
-                        <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
-                    </a>
-                    <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
-                        alt=""></a>
-                <div class="grid__items--content">
-                    <div></div>
-                    <span>
-                        <a href="#"><i class="far fa-id-badge"></i></a>
-                        <a href="#"><i class="far fa-folder"></i></a>
-                    </span>
-                </div>
-            </div>
-            <div class="grid__items">
-                <img class="img-header-box" src={{asset('img/classroom/bg.jpg')}} height="120px" width="100%" alt="">
-                <div class="grid__items--title">
-                    <a href="details_page.html">
-                        <p class="name-class">CĐ TH 19PM</p>
-                        <p class="name-subject">Lập trình ứng dụng web ASP.NET Core (LT + TH)</p>
-                    </a>
-                    <i class="fas fa-ellipsis-v"></i>
-                </div>
-                <a href="#" class="grid__items--poss">
-                    Dương H.Phước
-                </a>
-                <a href="#"><img class="img-body-logo" src={{asset('img/classroom/User.png')}} height="40px" width="40px"
+                <a href="#"><img class="img-body-logo" src={{asset('img/classrooms/user.png ')}} height="40px" width="40px"
                         alt=""></a>
                 <div class="grid__items--content">
                     <div></div>
@@ -282,11 +209,6 @@
             
         </div>
     </div>
-    <!-- Social Media End Here -->
-    <!-- Footer Area Start Here -->
-    <footer class="footer-wrap-layout1">
-        <div class="copyright">© Copyrights <a href="#">akkhor</a> 2019. All rights reserved. Designed by <a href="#">PsdBosS</a></div>
-    </footer>
-    <!-- Footer Area End Here -->
+
 </div>
 @endsection

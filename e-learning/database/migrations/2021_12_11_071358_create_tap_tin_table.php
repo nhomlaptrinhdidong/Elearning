@@ -15,7 +15,7 @@ class CreateTapTinTable extends Migration
     {
         Schema::create('tap_tin', function (Blueprint $table) {
             $table->id();
-            $table->string('duong_dan');
+            $table->string('duong_dan')->require;
             $table->boolean('trang_thai');
             $table->timestamps();
             $table->softDeletes();

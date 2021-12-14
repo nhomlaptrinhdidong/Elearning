@@ -85,7 +85,7 @@
                                     @endphp</label>
                                 </div>
                             </td>
-                            <td class="text-center"><img class="img-circle" src={{asset('img/students/'.$sinhVien->hinh_anh.'')}} alt="student"></td>
+                            <td class="text-center"><img class="img-circle" src={{asset('img/users/'.$sinhVien->hinh_anh.'')}} alt="student"></td>
                             <td>{{$sinhVien->ho_ten}}</td>
                             <td>@php
                                 if($sinhVien->gioi_tinh==1){
