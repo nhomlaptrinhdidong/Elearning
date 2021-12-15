@@ -246,6 +246,11 @@ a {
     font-size: 2rem;
     color: white;
     z-index: 3;
+    width: 310px;
+}
+
+.grid__items--title a .name-class {
+    z-index: 3;
 }
 
 .grid__items--poss {
@@ -264,10 +269,11 @@ a {
 .img-body-logo {
     position: absolute;
     right: 3rem;
-    top: 35%;
+    top: 40%;
     transform: translateY(-35%);
-    width: 7rem;
-    height: 7rem;
+    width: 8rem;
+    height: 9rem;
+    border-radius: 30%;
 }
 
 .grid__items--content {

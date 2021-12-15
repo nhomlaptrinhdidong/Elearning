@@ -3,6 +3,7 @@
 use App\Http\Controllers\DangNhapController;
 use App\Http\Controllers\MailerController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,9 +69,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 });
 
 Route::prefix('student')->group(function(){
-    Route::get('/', function () {
-        return view('students/index');
-    })->name('student-index');
+    Route::get('/',[StudentController::class, 'index'])->name('student-index');
     
     // Route::get('/all-students', function () {
     //     return view('admin/students/all-students');

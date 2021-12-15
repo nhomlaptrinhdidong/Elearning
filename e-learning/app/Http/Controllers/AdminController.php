@@ -122,7 +122,19 @@ class AdminController extends Controller
     }
     public function allMembers($ma_lop){
         $dsClassroom = Lop::where('ma_lop',$ma_lop)->first();
+       
         $taiKhoan = new TaiKhoan();
+        // foreach($dsClassroom->chiTietLop as $chiTiet){
+        //     // $taiKhoan = TaiKhoan::where('username',$chiTiet->pivot->tai_khoan_id)->first();
+        //     // $dsTaiKhoan = [
+        //     //     'username'=> $taiKhoan->username,
+        //     //     'ho_ten'=> $taiKhoan->ho_ten,
+        //     //     'hinh_anh'=> $taiKhoan->hinh_anh,
+
+        //     // ] ;
+        //     dd($chiTiet->pivot->tai_khoan_id);
+        //     return $chiTiet->pivot->tai_khoan_id;
+        // }
         return view('admin/classrooms/all-members', compact('dsClassroom', 'taiKhoan'));
     }
 
