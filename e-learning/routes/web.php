@@ -55,34 +55,18 @@ Route::middleware('auth')->prefix('admin')->group(function(){
             return view('admin/teachers/search-teacher');
         })->name('search-teacher');
     });
-    
+   
+    Route::get('/detail', [AdminController::class, 'adminDetail'])->name('admin-detail');
+    Route::get('/edit-profile',  [AdminController::class, 'editProfile'])->name('edit-profile');
+    Route::post('/edit-profile',  [AdminController::class, 'saveEditProfile'])->name('save-edit-profile');
 
-
-    
-    Route::get('/detail', function () {
-        return view('admin/admin-detail');
-    })->name('admin-detail');
-    Route::get('/edit-profile', function () {
-        return view('admin/edit-profile');
-    })->name('edit-profile');
     
 });
 
 Route::prefix('student')->group(function(){
     Route::get('/',[StudentController::class, 'index'])->name('student-index');
-    
-    // Route::get('/all-students', function () {
-    //     return view('admin/students/all-students');
-    // })->name('all-students');
-    // Route::get('student-detail', function () {
-    //     return view('admin/students/student-detail');
-    // })->name('student-detail');
-    // Route::get('add-student', function () {
-    //     return view('admin/students/add-student');
-    // })->name('add-student');
-    // Route::get('search-student', function () {
-    //     return view('admin/students/search-student');
-    // })->name('search-student');
-    
+    Route::get('/detail',[StudentController::class, 'userDetail'] )->name('student-detail');
+    Route::get('/edit-profile',[StudentController::class, 'editUserProfile'])->name('edit-user-profile');  
+    Route::post('/edit-profile',[StudentController::class, 'saveEditUserProfile'])->name('save-edit-user-profile');    
 });
 

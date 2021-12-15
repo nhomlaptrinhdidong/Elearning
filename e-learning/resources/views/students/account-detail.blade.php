@@ -1,12 +1,12 @@
-@extends('.layouts.admin')
+@extends('.layouts.student')
 @section('student-detail')
 <div class="dashboard-content-one">
     <!-- Breadcubs Area Start Here -->
     <div class="breadcrumbs-area">
-        <h3>Students</h3>
+        <h3>Student</h3>
         <ul>
             <li>
-                <a href="index.html">Home</a>
+                <a href="{{route('student-index')}}">Home</a>
             </li>
             <li>Student Details</li>
         </ul>
@@ -32,14 +32,14 @@
             </div>
             <div class="single-info-details">
                 <div class="item-img">
-                    <img src={{asset('img/users/'.$student->hinh_anh.'')}} alt="student">
+                    <img  src={{asset('img/users/'.auth()->user()->hinh_anh.'')}} alt="student">
                 </div>
                 <div class="item-content">
                     <div class="header-inline item-header">
-                        <h3 class="text-dark-medium font-medium">{{$student->username}}</h3>
+                        <h3 class="text-dark-medium font-medium">{{auth()->user()->username}}</h3>
                         <div class="header-elements">
                             <ul>
-                                <li><a href={{route('edit-student-profile', ['username'=>$student->username])}}><i class="far fa-edit"></i></a></li>
+                                <li><a href={{route('edit-user-profile')}}><i class="far fa-edit"></i></a></li>
                                 <li><a href="#"><i class="fas fa-print"></i></a></li>
                                 <li><a href="#"><i class="fas fa-download"></i></a></li>
                             </ul>
@@ -50,42 +50,31 @@
                             <tbody>
                                 <tr>
                                     <td>Name:</td>
-                                    <td class="font-medium text-dark-medium">{{$student->ho_ten}}</td>
+                                    <td class="font-medium text-dark-medium">{{auth()->user()->ho_ten}}</td>
                                 </tr>
                                 <tr>
                                     <td>Gender:</td>
-                                    <td class="font-medium text-dark-medium">@php
-                                        if($student->username==1){
-                                            echo 'Male';
-                                        }else
-                                            echo 'Female'
-                                    @endphp</td>
+                                    <td class="font-medium text-dark-medium">Female</td>
                                 </tr>
                                 <tr>
                                     <td>Date Of Birth:</td>
-                                    <td class="font-medium text-dark-medium">{{date('d-m-Y', strtotime($student->ngay_sinh))}}</td>
+                                    <td class="font-medium text-dark-medium">{{date('d-m-Y', strtotime(auth()->user()->ngay_sinh))}}</td>
                                 </tr>
                                 <tr>
                                     <td>E-mail:</td>
-                                    <td class="font-medium text-dark-medium">{{$student->email}}</td>
-                                </tr>                                                            
-                                
+                                    <td class="font-medium text-dark-medium">{{auth()->user()->email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Roll:</td>
+                                    <td class="font-medium text-dark-medium">10005</td>
+                                </tr>
                                 <tr>
                                     <td>Address:</td>
-                                    <td class="font-medium text-dark-medium">{{$student->dia_chi}}</td>
+                                    <td class="font-medium text-dark-medium">{{auth()->user()->dia_chi}}</td>
                                 </tr>
                                 <tr>
                                     <td>Phone:</td>
-                                    <td class="font-medium text-dark-medium">{{$student->sdt}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Status:</td>
-                                    <td class="font-medium text-dark-medium">@php
-                                        if($student->trang_thai==1){
-                                            echo 'Actived';
-                                        }else
-                                            echo 'Locked';
-                                    @endphp</td>
+                                    <td class="font-medium text-dark-medium">{{auth()->user()->sdt}}</td>
                                 </tr>
                             </tbody>
                         </table>

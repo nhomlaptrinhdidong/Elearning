@@ -82,7 +82,7 @@
                                         </div>
                                     </td>
                                     <td>{{$classroom->ma_lop}}</td>
-                                    <td class="text-center"><img src="img/figure/student2.png" alt="student"></td>
+                                    <td class="banner" class="text-center"><img src={{asset('img/classrooms/'.$classroom->banner.'')}} alt="student"></td>
     
                                     <td>{{$classroom->ten_lop}}</td>
                                     <td>{{$classroom->mo_ta}}</td>

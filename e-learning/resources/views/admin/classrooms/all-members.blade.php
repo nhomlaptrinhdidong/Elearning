@@ -18,35 +18,27 @@
                     <div class="item-title">
                         <h3>Teacher</h3>
                         <table class="table display data-table text-nowrap">
-
-                            @foreach ($dsClassroom->chiTietLop as $chiTiet)
-                            <?php
-                                $chiTietTaiKhoan = $taiKhoan::where('username',$chiTiet->pivot->tai_khoan_id)->first();
-                                if($chiTietTaiKhoan->loai_tai_khoan_id==2){
-                              ?>      <tr>
-                                        <td class="text-left"><img class="img-circle"
-                                                src={{ asset('img/users/'.$chiTietTaiKhoan->hinh_anh.'') }} alt="student"> </td>
-                                                <td>{{$chiTietTaiKhoan->ho_ten}}</td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                    <span class="flaticon-more-button-of-three-dots"></span>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fas fa-times text-orange-red"></i>Close</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
-                                                </div>
+                            <tr>
+                                    <td class="text-left"><img class="img-circle"
+                                            src={{ asset('img/users/'.$chiTietGV['hinh_anh_gv'].'') }} alt="student"> </td>
+                                            <td>{{$chiTietGV['giao_vien']}}</td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <span class="flaticon-more-button-of-three-dots"></span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#"><i
+                                                        class="fas fa-times text-orange-red"></i>Close</a>
+                                                <a class="dropdown-item" href="#"><i
+                                                        class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                                <a class="dropdown-item" href="#"><i
+                                                        class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                }?>
-                            @endforeach
-                        </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                    </table>
                     </div>
                     <br>
                     <div class="item-title">

@@ -33,43 +33,66 @@
                     </div>
                 </div>
             </div>
-            <form class="new-added-form">
+            <form class="new-added-form" method="POST" action={{route('save-edit-profile')}} enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Full Name *</label>
-                        <input type="text" placeholder="" class="form-control" value='{{auth()->user()->ho_ten}}'>
+                        <input type="text" name="ho_ten" placeholder="" class="form-control" value='{{auth()->user()->ho_ten}}'>
+                        @error('ho_ten')
+                        <span class="mess">{{$message}}</span>
+                        @enderror
                     </div>
+                    
+
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Gender *</label>
-                        <select class="select2">
+                        <select name="gioi_tinh" class="select2">
                             <option value="">----- Please Select Gender -----</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
                         </select>
+                        @error('gioi_tinh')
+                        <span class="mess">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Date Of Birth *</label>
-                        <input type="text" placeholder="dd/mm/yyyy" class="form-control air-datepicker"
+                        <input name="ngay_sinh" type="text" placeholder="dd/mm/yyyy" class="form-control air-datepicker"
                             data-position='bottom right' value="{{date('d-m-Y', strtotime(auth()->user()->ngay_sinh))}}">
                         <i class="far fa-calendar-alt"></i>
+                        @error('ngay_sinh')
+                        <span class="mess">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Address *</label>
-                        <input type="text" placeholder="" class="form-control" value='{{auth()->user()->dia_chi}}'>
+                        <input name="dia_chi" type="text" placeholder="" class="form-control" value='{{auth()->user()->dia_chi}}'>
+                        @error('dia_chi')
+                        <span class="mess">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>E-Mail *</label>
-                        <input type="email" placeholder="" class="form-control" value={{auth()->user()->email}}>
+                        <input name="email" type="email" placeholder="" class="form-control" value={{auth()->user()->email}}>
+                        @error('email')
+                        <span class="mess">{{$message}}</span>
+                        @enderror
                     </div>
                     
                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                         <label>Phone *</label>
-                        <input type="text" placeholder="" class="form-control" value={{auth()->user()->sdt}}>
+                        <input name="sdt" type="text" placeholder="" class="form-control" value={{auth()->user()->sdt}}>
+                        @error('sdt')
+                        <span class="mess">{{$message}}</span>
+                        @enderror
                     </div>
-                   
                     <div class="col-lg-6 col-12 form-group mg-t-30">
                         <label class="text-dark-medium">Upload Student Photo (150px X 150px)</label>
-                        <input type="file" class="form-control-file" value='{{auth()->user()->hinh_anh}}'>
+                        <input name="hinh_anh" type="file" class="form-control-file" value="{{auth()->user()->hinh_anh}}">
+                        @error('hinh_anh')
+                        <span class="mess">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="col-12 form-group mg-t-8">
                         <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
@@ -81,5 +104,4 @@
     </div>
     <!-- Admit Form Area End Here -->
 
-</div> 
 @endsection

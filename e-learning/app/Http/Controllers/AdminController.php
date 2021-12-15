@@ -3,14 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AccountRequest;
+use App\Http\Requests\UpdateAccountRequest;
+use App\Models\ChiTietLop;
 use App\Models\Lop;
 use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
-    function index(){
+    public function index(){
         return view('admin/index');
+    }
+    public function adminDetail() {
+        return view('admin/account-detail');
+    }
+    public function editProfile(){
+        return view('admin/edit-profile');
+    }
+    public function saveEditProfile(UpdateAccountRequest  $req){    
+        $user = TaiKhoan::where('username',auth()->user()->username)->first();
+        $user->ho_ten = $req->ho_ten;
+        $user->gioi_tinh = $req->gioi_tinh;
+        $user->ngay_sinh = date('Y/m/d', strtotime($req->ngay_sinh));
+        $user->email = $req->email;
+        $user->sdt = $req->sdt;
+        $user->dia_chi = $req->dia_chi;
+        if(!empty($req->hinh_anh)){
+            $uploadFile = $req->hinh_anh;
+            $uploadFile->storeAs('img/users',auth()->user()->username.'.'.$uploadFile->extension());
+            $user->hinh_anh = auth()->user()->username.'.'.$uploadFile->extension();
+        }
+        $user->save();
+        Auth::setUser($user);
+        return view('admin/account-detail');
     }
     public function addAccount(){
         return view('admin/add-account');
@@ -122,20 +148,20 @@ class AdminController extends Controller
     }
     public function allMembers($ma_lop){
         $dsClassroom = Lop::where('ma_lop',$ma_lop)->first();
-       
         $taiKhoan = new TaiKhoan();
-        // foreach($dsClassroom->chiTietLop as $chiTiet){
-        //     // $taiKhoan = TaiKhoan::where('username',$chiTiet->pivot->tai_khoan_id)->first();
-        //     // $dsTaiKhoan = [
-        //     //     'username'=> $taiKhoan->username,
-        //     //     'ho_ten'=> $taiKhoan->ho_ten,
-        //     //     'hinh_anh'=> $taiKhoan->hinh_anh,
-
-        //     // ] ;
-        //     dd($chiTiet->pivot->tai_khoan_id);
-        //     return $chiTiet->pivot->tai_khoan_id;
-        // }
-        return view('admin/classrooms/all-members', compact('dsClassroom', 'taiKhoan'));
+        foreach ($dsClassroom->chiTietLop as $chiTiet)
+        {
+           $chiTietTaiKhoan = TaiKhoan::where('username',$chiTiet->pivot->tai_khoan_id)->get();
+           foreach($chiTietTaiKhoan as $chiTiet)
+           {
+               if($chiTiet->loai_tai_khoan_id==2){
+                   $chiTietGV['giao_vien'] = $chiTiet->ho_ten;
+                   $chiTietGV['hinh_anh_gv'] = $chiTiet->hinh_anh;
+                   
+                } 
+            }
+        };
+        return view('admin/classrooms/all-members', compact('taiKhoan', 'chiTietGV','dsClassroom'));
     }
 
 }

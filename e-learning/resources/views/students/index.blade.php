@@ -3,12 +3,12 @@
 <div class="dashboard-content-one">
     <!-- Breadcubs Area Start Here -->
     <div class="breadcrumbs-area">
-        <h3>Admin Dashboard</h3>
+        <h3>Student Dashboard</h3>
         <ul>
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Admin</li>
+            <li>Student</li>
         </ul>
     </div>
     <!--Header End-->
@@ -21,9 +21,9 @@
                     <div class="grid__items--title">
                         <a href="detail_page.html">
                             <p class="name-class"> @php
-                                if(strlen($chiTietLop['ten_lop'])>21)
+                                if(strlen($chiTietLop['ten_lop'])>26)
                                 {
-                                    $s =Str::substr($chiTietLop['ten_lop'], 0, 17).'...';
+                                    $s =Str::substr($chiTietLop['ten_lop'], 0, 22).'...';
                                     echo $s;
                                 }
                                     else {
@@ -32,7 +32,7 @@
                             @endphp</p>
                             <p class="name-subject">
                                 @php
-                                    if(strlen($chiTietLop['mo_ta'])>40)
+                                    if(strlen($chiTietLop['mo_ta'])>41)
                                 {
                                     $s =Str::substr($chiTietLop['mo_ta'], 0, 37).'...';
                                     echo $s;

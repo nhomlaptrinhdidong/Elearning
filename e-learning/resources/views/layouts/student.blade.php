@@ -96,10 +96,10 @@
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                             <div class="admin-title">
                                 <h5 class="item-title">{{auth()->user()->ho_ten}}</h5>
-                                <span>Admin</span>
+                                <span>Student</span>
                             </div> 
                             <div class="admin-img">
-                            <img class="img-circle" src={{asset('img/users/'.auth()->user()->hinh_anh.'')}} alt="Admin">
+                            <img class="img-circle" src={{asset('img/users/'.auth()->user()->hinh_anh.'')}} alt="student">
                             </div> 
 
                         </a>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="item-content">
                                 <ul class="settings-list">
-                                    <li><a href={{route('admin-detail')}}><i class="flaticon-user"></i>My Profile</a></li>
+                                    <li><a href={{route('student-detail')}}><i class="flaticon-user"></i>My Profile</a></li>
                                     <li><a href="#"><i class="flaticon-list"></i>Task</a></li>
                                     <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Message</a></li>
                                     <li><a href="#"><i class="flaticon-gear-loading"></i>Account Settings</a></li>
@@ -256,7 +256,7 @@
                 <div class="sidebar-menu-content">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
                         <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                            <a href="{{route('student-index')}}" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
                         </li>                      
                         <li class="nav-item">
                             <a href="account-settings.html" class="nav-link"><i
@@ -267,10 +267,9 @@
             </div>
             <!-- Sidebar Area End Here -->
             @yield('index')
-            @yield('all-student')
-            @yield('student-detail')
-            @yield('add-student')
             @yield('search-student')
+            @yield('student-detail')
+            @yield('edit-profile')
 
         </div>
         <!-- Page Area End Here -->
