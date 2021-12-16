@@ -1,9 +1,9 @@
-@extends('.layouts.student')
-@section('index-student')
+@extends('.layouts.teacher')
+@section('index-teacher')
 <div class="dashboard-content-one">
     <!-- Breadcubs Area Start Here -->
     <div class="breadcrumbs-area">
-        <h3>Student Dashboard</h3>
+        <h3>Teacher Dashboard</h3>
         <ul>
             <li>Classrooms</li>
         </ul>
@@ -16,7 +16,7 @@
                 <div class="grid__items">
                     <img class="img-header-box"  src={{asset('img/classrooms/'.$chiTietLop['banner'].'')}} height="120px" width="100%" alt="">
                     <div class="grid__items--title">
-                        <a href="detail_page.html">
+                        <a href={{route('classroom-teacher-detail',['ma_lop'=>$chiTietLop['ma_lop']])}}>
                             <p class="name-class"> @php
                                 if(strlen($chiTietLop['ten_lop'])>26)
                                 {
@@ -38,7 +38,7 @@
                                        echo $chiTietLop['mo_ta'];
                                     }
                                 @endphp</p>
-                            <a href="#" class="grid__items--poss">
+                            <a href={{route('classroom-teacher-detail',['ma_lop'=>$chiTietLop['ma_lop']])}} class="grid__items--poss">
                                 {{$chiTietLop['giao_vien']}}
                             </a>
                         </a>

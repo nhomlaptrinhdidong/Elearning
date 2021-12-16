@@ -4,6 +4,7 @@ use App\Http\Controllers\DangNhapController;
 use App\Http\Controllers\MailerController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,9 +38,6 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::get('edit-student-profile/{username}', [AdminController::class, 'editStudentProfile'])->name('edit-student-profile');
         Route::post('edit-student-profile/{username}', [AdminController::class, 'saveEditStudentProfile'])->name('save-edit-student-profile');
         Route::get('delete-student/{username}', [AdminController::class, 'deleteStudent'])->name('delete-student');
-        Route::get('search-student', function () {
-            return view('admin/students/search-student');
-        })->name('search-student');
     });
     Route::prefix('classroom')->group(function(){
         Route::get('/all-classrooms', [AdminController::class, 'allClassroom'])->name('all-classrooms'); 
@@ -51,15 +49,13 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::get('teacher-detail/{username}', [AdminController::class, 'teacherDetail'])->name('teacher-detail');
         Route::get('edit-teacher-profile/{username}', [AdminController::class, 'editTeacherProfile'])->name('edit-teacher-profile');
         Route::post('edit-teacher-profile/{username}', [AdminController::class, 'saveEditTeacherProfile'])->name('save-edit-teacher-profile');
-        Route::get('search-teacher', function () {
-            return view('admin/teachers/search-teacher');
-        })->name('search-teacher');
     });
    
     Route::get('/detail', [AdminController::class, 'adminDetail'])->name('admin-detail');
     Route::get('/edit-profile',  [AdminController::class, 'editProfile'])->name('edit-profile');
     Route::post('/edit-profile',  [AdminController::class, 'saveEditProfile'])->name('save-edit-profile');
-
+    Route::get('/reset-password', [AdminController::class, 'resetPassword'])->name('reset-admin-password');
+    Route::post('/reset-password', [AdminController::class, 'savePassword'])->name('save-admin-password');
     
 });
 
@@ -68,5 +64,13 @@ Route::prefix('student')->group(function(){
     Route::get('/detail',[StudentController::class, 'userDetail'] )->name('student-detail');
     Route::get('/edit-profile',[StudentController::class, 'editUserProfile'])->name('edit-user-profile');  
     Route::post('/edit-profile',[StudentController::class, 'saveEditUserProfile'])->name('save-edit-user-profile');    
+});
+
+Route::prefix('teacher')->group(function(){
+    Route::get('/',[TeacherController::class, 'index'])->name('teacher-index');
+    Route::get('/detail',[TeacherController::class, 'userDetail'])->name('teacher-detail');
+    Route::get('/edit-profile',[TeacherController::class, 'editUserProfile'])->name('edit-accteacher-profile');  
+    Route::post('/edit-profile',[TeacherController::class, 'saveEditUserProfile'])->name('save-edit-accteacher-profile');
+    Route::get('/classroom-detail/{ma_lop}',[TeacherController::class, 'classroomDetail'])->name('classroom-teacher-detail');    
 });
 

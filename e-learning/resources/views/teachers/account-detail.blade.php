@@ -1,18 +1,17 @@
-@extends('.layouts.admin')
-@section('admin-detail')
+@extends('.layouts.teacher')
+@section('teacher-detail')
 <div class="dashboard-content-one">
     <!-- Breadcubs Area Start Here -->
     <div class="breadcrumbs-area">
-        <h3>Admin</h3>
+        <h3>Teacher</h3>
         <ul>
             <li>
-                <a href="index.html">Home</a>
+                <a href="{{route('teacher-index')}}">Home</a>
             </li>
-            <li>Admin Details</li>
+            <li>Teacher Details</li>
         </ul>
     </div>
-    <!-- Breadcubs Area End Here -->
-    <!-- Student Details Area Start Here -->
+
     <div class="card height-auto">
         <div class="card-body">
             <div class="heading-layout1">
@@ -32,14 +31,14 @@
             </div>
             <div class="single-info-details">
                 <div class="item-img">
-                    <img  src={{asset('img/users/'.auth()->user()->hinh_anh.'')}} alt="admin">
+                    <img  src={{asset('img/users/'.auth()->user()->hinh_anh.'')}} alt="teacher">
                 </div>
                 <div class="item-content">
                     <div class="header-inline item-header">
                         <h3 class="text-dark-medium font-medium">{{auth()->user()->username}}</h3>
                         <div class="header-elements">
                             <ul>
-                                <li><a href={{route('edit-profile')}}><i class="far fa-edit"></i></a></li>
+                                <li><a href={{route('edit-accteacher-profile')}}><i class="far fa-edit"></i></a></li>
                                 <li><a href="#"><i class="fas fa-print"></i></a></li>
                                 <li><a href="#"><i class="fas fa-download"></i></a></li>
                             </ul>
@@ -66,7 +65,7 @@
                                 </tr>
                                 <tr>
                                     <td>Type:</td>
-                                    <td class="font-medium text-dark-medium">Admin</td>
+                                    <td class="font-medium text-dark-medium">Teacher</td>
                                 </tr>
                                 <tr>
                                     <td>Address:</td>
@@ -83,7 +82,6 @@
             </div>
         </div>
     </div>
-    <!-- Student Details Area End Here -->
 
 </div> 
 @endsection

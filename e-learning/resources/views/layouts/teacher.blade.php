@@ -28,14 +28,11 @@
     <link rel="stylesheet" href={{asset('css/animate.min.css')}}>
     <!-- Custom CSS -->
     <link rel="stylesheet" href={{asset('style.css')}}>
-    <!-- Modernize js -->
-    <script src={{asset('js/modernizr-3.6.0.min.js')}}></script>
-
-    <link rel="stylesheet" href={{asset('/fontawesome-free-5.13.1-web/css/all.min.css')}}>
+    <link rel="stylesheet" href={{asset('fontawesome-free-5.13.1-web/css/all.min.css')}}>
     <!--Link FontAwesome End-->
 
     <!--Link CSS Start-->
-    <link rel="stylesheet" href={{asset('/css/style.css')}}>
+    <link rel="stylesheet" href={{asset('css/style.css')}}>
     <!--Link CSS End-->
 
     <!--Link Font Poppins Start-->
@@ -44,7 +41,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
+    <!--Link Font Poppins End-->
+    <!-- Modernize js -->
+    <script src={{asset('js/modernizr-3.6.0.min.js')}}></script>
+    
 </head>
 
 <body>
@@ -53,9 +53,8 @@
     <!-- Preloader End Here -->
     <div id="wrapper" class="wrapper bg-ash">
         <!-- Header Menu Area Start Here -->
-
         <div class="navbar navbar-expand-md header-menu-one bg-light">
-            <div  class="nav-bar-header-one">
+            <div class="nav-bar-header-one">
                 <div class="header-logo">
                     <a href="index.html">
                         <img src={{asset('img/logo.png')}} alt="logo">
@@ -97,10 +96,10 @@
                         <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                             <div class="admin-title">
                                 <h5 class="item-title">{{auth()->user()->ho_ten}}</h5>
-                                <span>Admin</span>
+                                <span>Teacher</span>
                             </div> 
                             <div class="admin-img">
-                            <img class="img-circle" src={{asset('img/users/'.auth()->user()->hinh_anh.'')}} alt="Admin">
+                            <img class="img-circle" src={{asset('img/users/'.auth()->user()->hinh_anh.'')}} alt="teacher">
                             </div> 
 
                         </a>
@@ -110,10 +109,10 @@
                             </div>
                             <div class="item-content">
                                 <ul class="settings-list">
-                                    <li><a href={{route('admin-detail')}}><i class="flaticon-user"></i>My Profile</a></li>
+                                    <li><a href={{route('teacher-detail')}}><i class="flaticon-user"></i>My Profile</a></li>
                                     <li><a href="#"><i class="flaticon-list"></i>Task</a></li>
                                     <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Message</a></li>
-                                    <li><a href="{{route('reset-admin-password')}}"><i class="flaticon-gear-loading"></i>Reset Password</a></li>
+                                    <li><a href="#"><i class="flaticon-gear-loading"></i>Account Settings</a></li>
                                     <li><a href="{{route('logout')}}"><i class="flaticon-turn-off"></i>Log Out</a></li>
                                 </ul>
                             </div>
@@ -256,60 +255,21 @@
                 </div>
                 <div class="sidebar-menu-content">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
-                        <li class="nav-item">
-                            <a href={{route('admin-index')}} class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="{{route('all-students')}}" class="nav-link"><i class="flaticon-classmates"></i><span>Students</span></a>
-                            
-                        </li>
-                        <li class="nav-item ">
-                            <a href="{{route('all-teachers')}}" class="nav-link"><i
-                                    class="flaticon-multiple-users-silhouette"></i><span>Teachers</span></a>
-                           
-                        </li>
-
                         <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i
-                                    class="flaticon-maths-class-materials-cross-of-a-pencil-and-a-ruler"></i><span>Class</span></a>
-                            <ul class="nav sub-group-menu">
-                                <li class="nav-item">
-                                    <a href={{route('all-classrooms')}} class="nav-link"><i class="fas fa-angle-right"></i>All
-                                        Classes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="add-class.html" class="nav-link"><i class="fas fa-angle-right"></i>Add New
-                                        Class</a>
-                                </li>
-                            </ul>
-                        </li>
+                            <a href="{{route('teacher-index')}}" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                        </li>                      
                         <li class="nav-item">
-                            <a href="{{route('add-account')}}" class="nav-link"><i
+                            <a href="account-settings.html" class="nav-link"><i
                                     class="flaticon-settings"></i><span>Account</span></a>
                         </li>
                     </ul>
                 </div>
             </div>
             <!-- Sidebar Area End Here -->
-            @include('sweetalert::alert')
-            @yield('index')
-            @yield('all-students')
-            @yield('student-detail')
-            @yield('edit-profile-student')
-            @yield('all-teachers')
-            @yield('teacher-detail')
-            @yield('edit-profile-teacher')
-            @yield('admin-detail')
-            @yield('edit-profile')
-            @yield('all-classrooms')
-            @yield('classroom-detail')
-            @yield('all-members')
-            @yield('reset-password')
-
-            @yield('add-account')
-            
-
-
+            @yield('index-teacher')
+           @yield('teacher-detail')
+           @yield('edit-profile')
+           @yield('classroom-detail')
 
         </div>
         <!-- Page Area End Here -->
@@ -336,6 +296,7 @@
     <script src={{asset('js/Chart.min.js')}}></script>
     <!-- Custom Js -->
     <script src={{asset('js/main.js')}}></script>
+
 </body> 
 
 

@@ -20,9 +20,9 @@ class DangNhapController extends Controller
             $user = Auth::user();
                 if($user->loai_tai_khoan_id==1){
                     return redirect()->route('admin-index');
-                }else if($user->loai_tai_khoan_id==2){
-                    return redirect()->route('admin-index');
-                }else{
+                }elseif($user->loai_tai_khoan_id==2){
+                    return redirect()->route('teacher-index');
+                }elseif($user->loai_tai_khoan_id==3) {
                     return redirect()->route('student-index');
                 }
         }   

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AccountRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateAccountRequest;
-use App\Models\ChiTietLop;
 use App\Models\Lop;
 use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
@@ -37,6 +37,12 @@ class AdminController extends Controller
         $user->save();
         Auth::setUser($user);
         return view('admin/account-detail');
+    }
+    public function resetPassword(){
+        return view('admin/reset-password');
+    }
+    public function savePassword(ResetPasswordRequest $reg){
+        return view('admin/reset-password');
     }
     public function addAccount(){
         return view('admin/add-account');

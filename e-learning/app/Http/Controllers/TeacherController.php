@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateAccountRequest;
-use App\Models\ChiTietLop;
-use App\Models\TaiKhoan;
 use App\Models\Lop;
+use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class StudentController extends Controller
+class TeacherController extends Controller
 {
     public function index(){
        
@@ -24,20 +23,20 @@ class StudentController extends Controller
                 $dschitiet[$chiTietLop->ma_lop]['mo_ta'] = $chiTietLop->mo_ta;
 
                foreach($chiTietLop->chiTietLop as $taikhoan){
-                   if($taikhoan->loai_tai_khoan_id==2){
+                   if($taikhoan->username==auth()->user()->username){
                        $dschitiet[$chiTietLop->ma_lop]['giao_vien']= $taikhoan->ho_ten;
                        $dschitiet[$chiTietLop->ma_lop]['hinh_anh_gv']= $taikhoan->hinh_anh;
                    }             
                }
             
         }
-        return view('students/index', compact('dschitiet')) ;
+        return view('teachers/index', compact('dschitiet')) ;
     }
     public function userDetail() {
-        return view('students/account-detail');
+        return view('teachers/account-detail');
     }
     public function editUserProfile() {
-        return view('students/edit-profile');
+        return view('teachers/edit-profile');
     }
     public function saveEditUserProfile(UpdateAccountRequest  $req){    
         $user = TaiKhoan::where('username',auth()->user()->username)->first();
@@ -54,6 +53,10 @@ class StudentController extends Controller
         }
         $user->save();
         Auth::setUser($user);
-        return view('students/account-detail');
+        return view('teachers/account-detail');
+    }
+    public function classroomDetail($ma_lop){
+        $dsClassroom = Lop::where('ma_lop',$ma_lop)->first();
+        return view('teachers/classrooms/classroom-detail', compact('dsClassroom'));
     }
 }

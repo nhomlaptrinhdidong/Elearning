@@ -1,4 +1,4 @@
-@extends('.layouts.admin')
+@extends('.layouts.student')
 @section('classroom-detail')
 <div class="dashboard-page-one">
     <div class="dashboard-content-one">

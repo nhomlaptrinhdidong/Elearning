@@ -65,8 +65,8 @@
                                     <td class="font-medium text-dark-medium">{{auth()->user()->email}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Roll:</td>
-                                    <td class="font-medium text-dark-medium">10005</td>
+                                    <td>Type:</td>
+                                    <td class="font-medium text-dark-medium">Student</td>
                                 </tr>
                                 <tr>
                                     <td>Address:</td>

@@ -266,7 +266,7 @@
                 </div>
             </div>
             <!-- Sidebar Area End Here -->
-            @yield('index')
+            @yield('index-student')
             @yield('search-student')
             @yield('student-detail')
             @yield('edit-profile')
