@@ -32,12 +32,12 @@ class MailerController extends Controller
             
         });
         $notification = array(
-            'message' => 'Gửi email thành công !',
+            'message' => 'Email sent successfully !',
             'alert-type' => 'success'
         );
         }else{
             $notification = array(
-                'message' => 'Kiểm tra lại email !',
+                'message' => 'Check your email again !',
                 'alert-type' => 'warning'
             );
         }

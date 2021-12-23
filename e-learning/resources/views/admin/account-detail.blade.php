@@ -54,7 +54,7 @@
                                 </tr>
                                 <tr>
                                     <td>Gender:</td>
-                                    <td class="font-medium text-dark-medium">Female</td>
+                                    <td class="font-medium text-dark-medium" class="font-medium text-dark-medium">@php if(auth()->user()->gioi_tinh==1){echo 'Male';}else{echo 'Female';}@endphp</td>
                                 </tr>
                                 <tr>
                                     <td>Date Of Birth:</td>

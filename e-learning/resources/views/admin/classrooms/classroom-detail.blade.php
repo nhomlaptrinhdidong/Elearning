@@ -5,7 +5,6 @@
         <!--Header End-->
         <!--Container Page Start-->
         <div class="container-center">
-    
                 <div class="header__center">
                     <a href="#" class="active">Home</a>
                     <a href="#">Bài tập trên lớp</a>
@@ -17,7 +16,7 @@
 
         <div class="container-center">
             <div class="background-heading">
-                <img class="background-heading" src="{{asset('img/classrooms/'.$dsClassroom->banner.'')}}" alt="">
+                <img  class="background-heading" src="{{asset('img/classrooms/'.$dsClassroom->banner.'')}}" alt="">
                 <div>
                     <h4>{{$dsClassroom->ten_lop}}</h4>
                     <p>{{$dsClassroom->mo_ta}}</p>

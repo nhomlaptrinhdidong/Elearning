@@ -97,7 +97,7 @@
                         @enderror
                     </div>
                     <div class="col-lg-6 col-12 form-group mg-t-30">
-                        <label class="text-dark-medium">Upload teacher Photo (150px X 150px)</label>
+                        <label class="text-dark-medium">Upload Account Photo (150px X 150px)</label>
                         <input type="file" name="hinh_anh" class="form-control-file" >
                         @error('hinh_anh')
                         <span class="mess">{{$message}}</span>

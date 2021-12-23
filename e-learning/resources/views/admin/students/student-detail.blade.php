@@ -69,7 +69,10 @@
                                     <td>E-mail:</td>
                                     <td class="font-medium text-dark-medium">{{$student->email}}</td>
                                 </tr>                                                            
-                                
+                                <tr>
+                                    <td>Type:</td>
+                                    <td class="font-medium text-dark-medium">Student</td>
+                                </tr>
                                 <tr>
                                     <td>Address:</td>
                                     <td class="font-medium text-dark-medium">{{$student->dia_chi}}</td>

@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
-use Illuminate\Http\Request;
-use App\Models\TaiKhoan;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class DangNhapController extends Controller
@@ -28,7 +25,7 @@ class DangNhapController extends Controller
         }   
         else 
         $notification = array(
-            'message' => 'Đăng nhập không thành công!',
+            'message' => 'Login failed !',
             'alert-type' => 'warning'
         );
         return redirect()->route('login')->with($notification);

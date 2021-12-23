@@ -59,7 +59,7 @@ class AccountRequest extends FormRequest
             'hinh_anh.image' => 'Avater must be an image.',
 
             'ngay_sinh.required' => 'Please enter date of birth',
-            'ngay_sinh.date_format' => 'Date of birth does not match the format d/m/Y',
+            'ngay_sinh.date_format' => 'Date of birth does not match the format d-m-Y',
             'ngay_sinh.before' => 'Date of birth must be a date before 01/01/2004.',
 
 
