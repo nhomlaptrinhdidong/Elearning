@@ -19,18 +19,20 @@
                         <h3>Teacher</h3>
                         <table class="table display data-table text-nowrap">
                             @foreach ($dsClassroom->chiTietLop as $chiTiet)
-                                <?php
-                                $chiTietTaiKhoan = $taiKhoan::where('username',$chiTiet->pivot->tai_khoan_id)->first();
-                                if($chiTietTaiKhoan->loai_tai_khoan_id==2){
-                              ?> <tr>
-                                    <td class="text-left"><img class="img-circle"
-                                            src={{ asset('img/users/' . $chiTietTaiKhoan->hinh_anh . '') }} alt="student">
-                                    </td>
-                                    <td>{{ $chiTietTaiKhoan->ho_ten }}</td>
+                                @php
+                                    
+                                    $chiTietTaiKhoan = $taiKhoan::where('username', $chiTiet->pivot->tai_khoan_id)->first();
+                                @endphp
+                                @if ($chiTietTaiKhoan->loai_tai_khoan_id == 2)
+                                    <tr>
+                                        <td class="text-left"><img class="img-circle"
+                                                src={{ asset('img/users/' . $chiTietTaiKhoan->hinh_anh . '') }}
+                                                alt="student">
+                                        </td>
+                                        <td>{{ $chiTietTaiKhoan->ho_ten }}</td>
 
-                                </tr>
-                                <?php
-                                }?>
+                                    </tr>
+                                @endif
                             @endforeach
                         </table>
                     </div>

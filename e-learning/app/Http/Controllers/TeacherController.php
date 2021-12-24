@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class TeacherController extends Controller
 {
@@ -120,14 +121,70 @@ class TeacherController extends Controller
 
         return redirect()->route('classroom-teacher-all-members', ['ma_lop' => $ma_lop]);
     }
+    public function sendEmail(Request $req, $ma_lop)
+    {
+        $listEmail = explode(";", $req->email);
+        $arr = [];
+        $noexist = '0';
+        $success = '0';
+        $were = '0';
+        $i = 0;
+        foreach ($listEmail as $email) {
+            $i++;
+            $checkUsername = TaiKhoan::where('email', $email)->where('loai_tai_khoan_id', '3')->first();
+            if (empty($checkUsername)) {
+                $arr['noexist'][$i] = $email;
+            } else {
+                $checkLop = ChiTietLop::where('lop_id', $ma_lop)->where('tai_khoan_id', $checkUsername->username)->first();
+                if (empty($checkLop)) {
+                    $url = route('join-classroom-by-email', ['username' => $checkUsername->username, 'ma_lop' => $ma_lop]);
+                    $data = [
+                        'route' => $url
+                    ];
+                    Mail::send('teachers.classrooms.join-by-email', $data, function ($message) use ($email) {
+                        $message->to($email, 'Join Classroom')->subject('Join Classroom');
+                    });
+                    $arr['success'][$i] = $email;
+                } else {
+                    $arr['were'][$i] = $email;
+                }
+            }
+        }
+        if (empty($arr['were']) && empty($arr['noexist'])) {
+            $success = implode(' ', $arr['success']);
+            $notification = array(
+                'message' => "Email sent successfully: $success",
+                'alert-type' => 'success'
+            );
+        } else {
+            if (!empty($arr['were'])) {
+
+                $were = implode(' ', $arr['were']);
+            }
+            if (!empty($arr['noexist'])) {
+
+                $noexist = implode(' ', $arr['noexist']);
+            };
+            if (!empty($arr['success'])) {
+
+                $success = implode(' ', $arr['success']);
+            };
+
+            $notification = array(
+                'message' => "Email sent successfully: $success Email is not in the list of students: $noexist Email already in class: $were",
+                'alert-type' => 'warning'
+            );
+        }
+        return redirect()->back()->with($notification);
+    }
     public function resetPassword()
     {
         return view('teachers/reset-password');
     }
-    public function savePassword(ResetPasswordRequest $reg)
+    public function savePassword(ResetPasswordRequest $req)
     {
         $user = TaiKhoan::where('username', auth()->user()->username)->first();
-        $user->password = Hash::make($reg->newpassword);
+        $user->password = Hash::make($req->newpassword);
         $user->save();
         $notification = array(
             'message' => 'Change password successfully!',

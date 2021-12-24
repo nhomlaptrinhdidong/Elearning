@@ -36,11 +36,56 @@
                                 <td class="text-left">
                                     <h3>Students</h3>
                                 </td>
-                                <td class="text-right"><a
-                                        href="{{ route('list-students', ['ma_lop' => $dsClassroom->ma_lop]) }}"><i
-                                            class="fas fa-plus"></i></a></td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <span class="flaticon-more-button-of-three-dots"></span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item"
+                                                href="{{ route('list-students', ['ma_lop' => $dsClassroom->ma_lop]) }}"><i
+                                                    class="fas fa-plus text-orange-red  "></i>List Students</a>
+                                            <a href="#sendemail" class="dropdown-item"><i
+                                                    class="far fa-paper-plane text-dark-pastel-green"></i>Send
+                                                Email</a>
+
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         </table>
+                        <div id="sendemail" class="overlay">
+                            <div class="popup">
+                                <h2>Sent Email</h2>
+                                <a class="close" href="#">&times;</a>
+                                <form action="{{ route('send-email-class', ['ma_lop' => $dsClassroom->ma_lop]) }}"
+                                    method="post">
+                                    @csrf
+                                    <table>
+                                        <tr>
+                                            <td class="text-left">
+
+                                                <div class="form-group">
+                                                    <label>Email:</label>
+                                                    <textarea placeholder="Enter email" rows="4" cols="50" type="text"
+                                                        name="email"> </textarea>
+                                                </div>
+                                            </td>
+                                            <td>
+
+                                            <td style="padding-left: 6px" class="text-right">
+                                                <button type="submit">
+
+                                                    <i class="far fa-paper-plane text-dark-pastel-green"></i>
+                                                </button>
+                                            </td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <h6>(Note: Each student is separated by ' ; ')</h6>
+                                </form>
+                            </div>
+                        </div>
                         <table class="table display data-table text-nowrap">
                             @foreach ($dsClassroom->chiTietLop as $chiTiet)
                                 <?php

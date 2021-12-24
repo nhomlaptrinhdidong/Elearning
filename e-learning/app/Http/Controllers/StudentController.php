@@ -128,13 +128,41 @@ class StudentController extends Controller
                 'message' => 'Successfully join the class',
                 'alert-type' => 'success'
             );
-            return redirect()->back()->with($notification);
+            return redirect()->route('student-index')->with($notification);
         } else {
             $notification = array(
                 'message' => 'You were in class',
                 'alert-type' => 'warning'
             );
             return redirect()->back()->with($notification);
+        }
+    }
+    public function joinClassroomByEmail($username, $ma_lop)
+    {
+        if (auth()->user()->username == $username) {
+            $checkLop = ChiTietLop::where('tai_khoan_id', $username)->where('lop_id', $ma_lop)->first();
+            if (empty($checkLop)) {
+
+                $join = new ChiTietLop();
+                $join->lop_id = $ma_lop;
+                $join->tai_khoan_id = $username;
+                $join->cach_tham_gia = 3;
+                $join->trang_thai = 1;
+                $join->save();
+                $notification = array(
+                    'message' => 'Successfully join the class',
+                    'alert-type' => 'success'
+                );
+            } else {
+                $notification = array(
+                    'message' => 'You were in class',
+                    'alert-type' => 'warning'
+                );
+            }
+
+            return redirect()->route('student-index')->with($notification);
+        } else {
+            return redirect()->route('student-index');
         }
     }
 }
