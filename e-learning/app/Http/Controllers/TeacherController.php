@@ -137,6 +137,12 @@ class TeacherController extends Controller
             } else {
                 $checkLop = ChiTietLop::where('lop_id', $ma_lop)->where('tai_khoan_id', $checkUsername->username)->first();
                 if (empty($checkLop)) {
+                    $join = new ChiTietLop();
+                    $join->lop_id = $ma_lop;
+                    $join->tai_khoan_id = $checkUsername->username;
+                    $join->cach_tham_gia = 3;
+                    $join->trang_thai = 0;
+                    $join->save();
                     $url = route('join-classroom-by-email', ['username' => $checkUsername->username, 'ma_lop' => $ma_lop]);
                     $data = [
                         'route' => $url

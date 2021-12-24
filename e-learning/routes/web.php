@@ -30,7 +30,7 @@ Route::get('/reset-password', [MailerController::class, "resetPassword"])->name(
 Route::post('/reset-password', [MailerController::class, "handelResetPassword"])->name("handle-reset-password");
 
 
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin-index');
     Route::get('/add-account', [AdminController::class, 'addAccount'])->name('add-account');
     Route::post('/add-account', [AdminController::class, 'saveAccount'])->name('save-account');
@@ -63,13 +63,13 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('/reset-password', [AdminController::class, 'savePassword'])->name('save-admin-password');
 });
 
-Route::middleware('auth')->prefix('student')->group(function () {
+Route::middleware('student')->prefix('student')->group(function () {
     Route::get('/', [StudentController::class, 'index'])->name('student-index');
     Route::get('/detail', [StudentController::class, 'userDetail'])->name('student-detail');
     Route::get('/edit-profile', [StudentController::class, 'editUserProfile'])->name('edit-user-profile');
     Route::post('/edit-profile', [StudentController::class, 'saveEditUserProfile'])->name('save-edit-user-profile');
-    Route::get('/reset-password', [AdminController::class, 'resetPassword'])->name('reset-student-password');
-    Route::post('/reset-password', [AdminController::class, 'savePassword'])->name('save-student-password');
+    Route::get('/reset-password', [StudentController::class, 'resetPassword'])->name('reset-student-password');
+    Route::post('/reset-password', [StudentController::class, 'savePassword'])->name('save-student-password');
 
     Route::get('/classroom-detail/{ma_lop}', [StudentController::class, 'classroomDetail'])->name('classroom-student-detail');
     Route::get('/all-members/{ma_lop}', [StudentController::class, 'allMembers'])->name('classroom-student-all-members');
@@ -79,7 +79,7 @@ Route::middleware('auth')->prefix('student')->group(function () {
     Route::get('/join-classroom-byEmail/{username}/{ma_lop}', [StudentController::class, 'joinClassroomByEmail'])->name('join-classroom-by-email');
 });
 
-Route::prefix('teacher')->group(function () {
+Route::middleware('teacher')->prefix('teacher')->group(function () {
     Route::get('/', [TeacherController::class, 'index'])->name('teacher-index');
     Route::get('/detail', [TeacherController::class, 'userDetail'])->name('teacher-detail');
     Route::get('/edit-profile', [TeacherController::class, 'editUserProfile'])->name('edit-accteacher-profile');
@@ -95,4 +95,6 @@ Route::prefix('teacher')->group(function () {
     Route::post('/send-email/{ma_lop}', [TeacherController::class, 'sendEmail'])->name('send-email-class');
 });
 Route::get('auth/redirect/{provider}', [SocialController::class, 'redirect']);
-Route::get('callback/{provider}', [SocialController::class, 'callback']);
+Route::get('callback/{provider}', [SocialController::class, 'callback'])->name('call-back');
+Route::get('create-password/{username}', [SocialController::class, 'createPassword'])->name('create-password');
+Route::post('save-password/{username}', [SocialController::class, 'savePassword'])->name('save-password-api');

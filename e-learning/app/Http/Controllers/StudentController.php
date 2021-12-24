@@ -140,19 +140,22 @@ class StudentController extends Controller
     public function joinClassroomByEmail($username, $ma_lop)
     {
         if (auth()->user()->username == $username) {
-            $checkLop = ChiTietLop::where('tai_khoan_id', $username)->where('lop_id', $ma_lop)->first();
+            $checkLop = ChiTietLop::where('tai_khoan_id', $username)->where('lop_id', $ma_lop)->where('trang_thai', '!=', 0)->first();
             if (empty($checkLop)) {
-
-                $join = new ChiTietLop();
-                $join->lop_id = $ma_lop;
-                $join->tai_khoan_id = $username;
-                $join->cach_tham_gia = 3;
-                $join->trang_thai = 1;
-                $join->save();
-                $notification = array(
-                    'message' => 'Successfully join the class',
-                    'alert-type' => 'success'
-                );
+                $join = ChiTietLop::where('tai_khoan_id', $username)->where('lop_id', $ma_lop)->where('trang_thai', 0)->first();
+                if (!empty($join)) {
+                    $join->trang_thai = 1;
+                    $join->save();
+                    $notification = array(
+                        'message' => 'Successfully join the class',
+                        'alert-type' => 'success'
+                    );
+                } else {
+                    $notification = array(
+                        'message' => 'Request has been deleted',
+                        'alert-type' => 'error'
+                    );
+                }
             } else {
                 $notification = array(
                     'message' => 'You were in class',
