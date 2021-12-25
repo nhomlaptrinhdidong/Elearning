@@ -49,7 +49,8 @@
                 <div class="login-social">
                     <p>or sign in with</p>
                     <ul>
-                        <li><a href="#" class="bg-fb"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="{{ url('/auth/redirect/facebook') }}" class="bg-fb"><i
+                                    class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#" class="bg-twitter"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="{{ url('/auth/redirect/google') }}" class="bg-gplus"><i
                                     class="fab fa-google-plus-g"></i></a></li>

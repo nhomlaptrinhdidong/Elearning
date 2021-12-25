@@ -77,6 +77,8 @@ Route::middleware('student')->prefix('student')->group(function () {
     Route::get('/join-classroom', [StudentController::class, 'joinClassroom'])->name('join-classroom');
     Route::post('/join-classroom', [StudentController::class, 'saveJoinClassroom'])->name('save-join-classroom');
     Route::get('/join-classroom-byEmail/{username}/{ma_lop}', [StudentController::class, 'joinClassroomByEmail'])->name('join-classroom-by-email');
+    Route::get('/accept-join-classroom/{ma_lop}', [StudentController::class, 'acceptJoinClass'])->name('accept-join-class');
+    Route::get('/delete-join-classroom/{ma_lop}', [StudentController::class, 'deleteJoinClass'])->name('delete-join-class');
 });
 
 Route::middleware('teacher')->prefix('teacher')->group(function () {

@@ -148,6 +148,54 @@ h6 {
 
 /*=============== 2.1 Card ==================*/
 
+.scrollbar {
+    float: left;
+    height: 300px;
+    width: 350px;
+    background: #F5F5F5;
+    overflow-y: scroll;
+}
+
+.force-overflow {
+    min-height: 300px;
+}
+
+#style-2::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+
+/**  STYLE 2 */
+
+#style-2::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #D62929;
+}
+
+#style-2::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.container_swap {
+    width: 200px;
+}
+
+.div_left {
+    width: 100px;
+    float: left;
+    text-align: center;
+}
+
+.div_right {
+    width: 100px;
+    float: left;
+    text-align: center;
+}
+
 .box {
     width: 40%;
     margin: 0 auto;

@@ -8,17 +8,21 @@ use App\Http\Requests\UpdateAccountRequest;
 use App\Models\ChiTietLop;
 use App\Models\TaiKhoan;
 use App\Models\Lop;
-use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\View\Composers\ProfileComposer;
+use Illuminate\Support\Facades\View;
 
 class StudentController extends Controller
 {
     public function index()
     {
-
+        $noti = ChiTietLop::where('tai_khoan_id', auth()->user()->username)->where('trang_thai', 0)->get();
+        $lop = new Lop();
+        View::share('notification', $noti);
+        View::share('lop', $lop);
         $dschitiet = [];
+
         $dsLop = ChiTietLop::where('tai_khoan_id', auth()->user()->username)->where('trang_thai', '1')->get();
         foreach ($dsLop as $chiTiet) {
             $chiTietLop = Lop::where('ma_lop', $chiTiet->lop_id)->first();
@@ -167,5 +171,25 @@ class StudentController extends Controller
         } else {
             return redirect()->route('student-index');
         }
+    }
+    public function acceptJoinClass($ma_lop)
+    {
+        $accept = ChiTietLop::where('tai_khoan_id', auth()->user()->username)->where('lop_id', $ma_lop)->first();
+        $accept->trang_thai = 1;
+        $accept->save();
+        $notification = array(
+            'message' => 'Successfully join the class',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function deleteJoinClass($ma_lop)
+    {
+        $accept = ChiTietLop::where('tai_khoan_id', auth()->user()->username)->where('lop_id', $ma_lop)->first()->delete();
+        $notification = array(
+            'message' => 'Refused to join the class',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }

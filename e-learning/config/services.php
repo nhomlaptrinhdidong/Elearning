@@ -18,6 +18,11 @@ return [
         'client_secret' => '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',
         'redirect' => 'http://127.0.0.1:8000/callback/google',
     ],
+    'facebook' => [
+        'client_id' => '954334541873283',
+        'client_secret' => 'a28a6c7ce521bbf5245eb7997b7e487e',
+        'redirect' => 'http://127.0.0.1:8000/callback/facebook',
+    ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

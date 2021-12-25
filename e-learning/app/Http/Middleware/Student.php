@@ -2,9 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\ChiTietLop;
+use App\Models\Lop;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class Student
 {
@@ -18,6 +21,10 @@ class Student
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->loai_tai_khoan_id == 3) {
+            $noti = ChiTietLop::where('tai_khoan_id', auth()->user()->username)->where('trang_thai', 0)->get();
+            $lop = new Lop();
+            View::share('notification', $noti);
+            View::share('lop', $lop);
             return $next($request);
         }
 

@@ -23,6 +23,7 @@ class SocialController extends Controller
     {
 
         $getInfo = Socialite::driver($provider)->stateless()->user();
+        dd($getInfo);
         $user = $this->createUser($getInfo, $provider);
         if (empty($user->password)) {
             return redirect()->route('create-password', ['username' => $user->username]);

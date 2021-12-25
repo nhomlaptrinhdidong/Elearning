@@ -162,39 +162,87 @@
                             aria-expanded="false">
                             <i class="far fa-bell"></i>
                             <div class="item-title d-md-none text-16 mg-l-10">Notification</div>
-                            <span>8</span>
+                            <span>{{ $notification->count() }}</span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="item-header">
-                                <h6 class="item-title">03 Notifiacations</h6>
+                                <h6 class="item-title">{{ $notification->count() }} Notifiacations</h6>
                             </div>
-                            <div class="item-content">
-                                <div class="media">
-                                    <div class="item-icon bg-skyblue">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">Complete Today Task</div>
-                                        <span>1 Mins ago</span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item-icon bg-orange">
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">Director Metting</div>
-                                        <span>20 Mins ago</span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="item-icon bg-violet-blue">
-                                        <i class="fas fa-cogs"></i>
-                                    </div>
-                                    <div class="media-body space-sm">
-                                        <div class="post-title">Update Password</div>
-                                        <span>45 Mins ago</span>
+                            <div class="scrollbar" id="style-2">
+                                <div class="force-overflow">
+                                    <div class="item-content">
+                                        @foreach ($notification as $notidetail)
+                                            @php
+                                                $chiTietLop = $lop::where('ma_lop', $notidetail->lop_id)->first();
+                                            @endphp
+                                            <div class="media">
+                                                <div class="item-icon bg-violet-blue">
+                                                    <i class="fas fa-hourglass-half"></i>
+                                                </div>
+                                                <div class="media-body space-sm">
+                                                    <div class="post-title">You have an invitation to class
+                                                        {{ $chiTietLop->ten_lop }} . Do you want to join?</div>
+                                                    <div class="container_swap">
+
+                                                        <div class="div_left">
+                                                            <a onclick="return confirm('Are you sure?')"
+                                                                href="{{ route('accept-join-class', ['ma_lop' => $notidetail->lop_id]) }}">
+                                                                <div class="item-icon bg-skyblue">
+                                                                    <i class="fas fa-check"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="div_right">
+                                                            <a onclick="return confirm('Are you sure?')"
+                                                                href="{{ route('delete-join-class', ['ma_lop' => $notidetail->lop_id]) }}">
+                                                                <div class="item-icon bg-red">
+
+                                                                    <i class="fas fa-times text-orange-red"></i>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                        <div class="media">
+                                            <div class="item-icon bg-orange">
+                                                <i class="fas fa-calendar-alt"></i>
+                                            </div>
+                                            <div class="media-body space-sm">
+                                                <div class="post-title">Director Metting</div>
+                                                <span>20 Mins ago</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="media">
+                                            <div class="item-icon bg-violet-blue">
+                                                <i class="fas fa-cogs"></i>
+                                            </div>
+                                            <div class="media-body space-sm">
+                                                <div class="post-title">Update Password</div>
+                                                <span>45 Mins ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="media">
+                                            <div class="item-icon bg-violet-blue">
+                                                <i class="fas fa-cogs"></i>
+                                            </div>
+                                            <div class="media-body space-sm">
+                                                <div class="post-title">Update Password</div>
+                                                <span>45 Mins ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="media">
+                                            <div class="item-icon bg-violet-blue">
+                                                <i class="fas fa-cogs"></i>
+                                            </div>
+                                            <div class="media-body space-sm">
+                                                <div class="post-title">Update Password</div>
+                                                <span>45 Mins ago</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
