@@ -99,6 +99,12 @@ Route::middleware('teacher')->prefix('teacher')->group(function () {
     //Add Post
     Route::get('/classroom/add-post/{ma_lop}', [TeacherController::class, 'addPost'])->name('classroom-teacher-addPost');
     Route::post('/classroom/add-post/{ma_lop}', [TeacherController::class, 'addPost_POST'])->name('classroom-teacher-addPost_POST');
+    //Add Exams
+    Route::get('/classroom/add-exams/{ma_lop}', [TeacherController::class, 'addExams'])->name('classroom-teacher-addExams');
+    Route::post('/classroom/add-exams/{ma_lop}', [TeacherController::class, 'addExams_POST'])->name('classroom-teacher-addExams_POST');
+    //Add Exams
+    Route::get('/classroom/add-worls/{ma_lop}', [TeacherController::class, 'addWorks'])->name('classroom-teacher-addWorks');
+    Route::post('/classroom/add-worls/{ma_lop}', [TeacherController::class, 'addWorks_POST'])->name('classroom-teacher-addWorks_POST');
 
     //News (Bài Đăng)
     Route::get('/classroom/news/{ma_lop}', [TeacherController::class, 'news'])->name('classroom-teacher-news');

@@ -21,7 +21,7 @@ class CreateBaiDangTable extends Migration
             $table->string('noi_dung');
             $table->integer('tap_tin_id');
             $table->date('ngay_dang');
-            $table->date('ngay_nop');
+            $table->date('ngay_nop')->nullable();
             $table->boolean('trang_thai');
             $table->timestamps();
             $table->softDeletes();

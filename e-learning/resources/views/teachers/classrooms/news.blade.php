@@ -1,7 +1,8 @@
 @extends('.layouts.teacher')
-@section('all-members')
+@section('index-teacher')
 <!-- <h1>Bài đăng</h1> -->
-<a href="{{ route('classroom-teacher-addPost', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới</a>
+
+<a href="{{ route('classroom-teacher-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại lớp</a>
 
 <table border="1" align="center">
     <tr align="center">
@@ -33,4 +34,8 @@
     </tr>
     @endforelse
 </table>
+
+<a href="{{ route('classroom-teacher-addPost', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới thông báo / tài liệu</a>
+<a href="{{ route('classroom-teacher-addWorks', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới bài tập</a>
+<a href="{{ route('classroom-teacher-addExams', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới bài kiểm tra</a>
 @endsection

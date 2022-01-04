@@ -1,6 +1,6 @@
 @extends('.layouts.teacher')
 @section('index-teacher')
-<form method="POST" action=" {{ route('classroom-teacher-addPost_POST', ['ma_lop' => $lop -> ma_lop]) }} ">
+<form method="POST" action=" {{ route('classroom-teacher-addExams_POST', ['ma_lop' => $lop -> ma_lop]) }} ">
     @csrf
     <label>
         <!-- <tr>
@@ -40,10 +40,10 @@
             <td><input type="date" name="ngay_dang" value="data.now"/></td>
         </tr> -->
 
-        <!-- <tr>
+        <tr>
             <th>Ngày nộp</th>
-            <td><input type="date" name="ngay_nop" /></td>
-        </tr> -->
+            <td><input type="date" name="ngay_nop"/></td>
+        </tr>
 
         <tr>
             <th>Trạng thái</th>
@@ -62,5 +62,5 @@
     <a href="{{ route('classroom-teacher-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a>
 </form>
 
-<p>Thêm thông báo / tài liệu</p>
+<p>Thêm bài kiểm tra</p>
 @endsection

@@ -17,8 +17,8 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href={{ route('classroom-teacher-addPost', ['ma_lop' => $dsClassroom->ma_lop] ) }}><i class="far fa-bell"></i> Thông Báo</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-home"></i> Bài Tập</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-check-double"></i> Bài Kiểm Tra</a>
+                        <a class="dropdown-item" href={{ route('classroom-teacher-addWorks', ['ma_lop' => $dsClassroom->ma_lop] ) }}><i class="fas fa-home"></i> Bài Tập</a>
+                        <a class="dropdown-item" href={{ route('classroom-teacher-addExams', ['ma_lop' => $dsClassroom->ma_lop] ) }}><i class="fas fa-check-double"></i> Bài Kiểm Tra</a>
                     </div>
                 </div>
                 <!--End Add Post-->

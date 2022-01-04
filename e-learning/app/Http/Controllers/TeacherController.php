@@ -200,7 +200,7 @@ class TeacherController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    //Add Post
+    //Thêm thông báo / Tài liệu
     public function addPost($ma_lop)
     {
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
@@ -212,12 +212,58 @@ class TeacherController extends Controller
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
 
         $post = new BaiDang();
-        $post->loai_bai_dang_id = $req->loai_bai_dang_id;
+        $post->loai_bai_dang_id = 3;
         $post->ma_lop = $ma_lop;
         $post->tieu_de = $req->tieu_de;
         $post->noi_dung = $req->noi_dung;
         $post->tap_tin_id = $req->tap_tin_id;
-        $post->ngay_dang = $req->ngay_dang;
+        $post->ngay_dang = date(now());
+        
+        //$post->ngay_nop = $req->ngay_nop;
+        //$post->trang_thai = $req->trang_thai;
+        
+        if(empty($req->trang_thai))
+        {
+            $post->trang_thai = 0;
+        }        
+        else
+        {
+            $post->trang_thai = $req->trang_thai;
+        }
+        //dd($lop);
+        $post->save();
+        // return view('teachers/classrooms/add-post');
+        return redirect()->route('classroom-teacher-news',['ma_lop'=>$lop->ma_lop]);
+    }
+    //Kết thúc thêm thông báo / tài liệu
+
+    //News (Trang Bài Đăng)
+    public function news($ma_lop)
+    {
+        $listPost = BaiDang::all();
+        $lop = Lop::where('ma_lop', "$ma_lop")->first();
+        return view('teachers/classrooms/news', compact('listPost', 'lop'));
+    }
+    //End NEWS (Trang Bài Đăng)
+
+    //Thêm bài kiểm tra
+    public function addExams($ma_lop)
+    {
+        $lop = Lop::where('ma_lop', "$ma_lop")->first();
+        return view('teachers/classrooms/add-exams', compact('lop'));
+    }
+    
+    public function addExams_POST(Request $req, $ma_lop)
+    {
+        $lop = Lop::where('ma_lop', "$ma_lop")->first();
+
+        $post = new BaiDang();
+        $post->loai_bai_dang_id = 1;
+        $post->ma_lop = $ma_lop;
+        $post->tieu_de = $req->tieu_de;
+        $post->noi_dung = $req->noi_dung;
+        $post->tap_tin_id = $req->tap_tin_id;
+        $post->ngay_dang = date(now());
         $post->ngay_nop = $req->ngay_nop;
         //$post->trang_thai = $req->trang_thai;
         
@@ -229,19 +275,46 @@ class TeacherController extends Controller
         {
             $post->trang_thai = $req->trang_thai;
         }
-
         //dd($lop);
-
         $post->save();
         // return view('teachers/classrooms/add-post');
         return redirect()->route('classroom-teacher-news',['ma_lop'=>$lop->ma_lop]);
     }
+    //Kết thúc thêm bài kiểm tra
 
-    //News (Trang Bài Đăng)
-    public function news($ma_lop)
+    //Thêm bài tập
+    public function addWorks($ma_lop)
     {
-        $listPost = BaiDang::all();
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
-        return view('teachers/classrooms/news', compact('listPost', 'lop'));
+        return view('teachers/classrooms/add-homework', compact('lop'));
     }
+    
+    public function addWorks_POST(Request $req, $ma_lop)
+    {
+        $lop = Lop::where('ma_lop', "$ma_lop")->first();
+
+        $post = new BaiDang();
+        $post->loai_bai_dang_id = 2;
+        $post->ma_lop = $ma_lop;
+        $post->tieu_de = $req->tieu_de;
+        $post->noi_dung = $req->noi_dung;
+        $post->tap_tin_id = $req->tap_tin_id;
+        $post->ngay_dang = date(now());
+        $post->ngay_nop = $req->ngay_nop;
+        //$post->trang_thai = $req->trang_thai;
+        
+        if(empty($req->trang_thai))
+        {
+            $post->trang_thai = 0;
+        }        
+        else
+        {
+            $post->trang_thai = $req->trang_thai;
+        }
+        //dd($lop);
+        $post->save();
+        // return view('teachers/classrooms/add-post');
+        return redirect()->route('classroom-teacher-news',['ma_lop'=>$lop->ma_lop]);
+    }
+    //Kết thúc thêm bài tập
 }
