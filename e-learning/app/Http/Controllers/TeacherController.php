@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateAccountRequest;
+use App\Models\BaiDang;
 use App\Models\ChiTietLop;
 use App\Models\Lop;
 use App\Models\TaiKhoan;
@@ -197,5 +198,50 @@ class TeacherController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+
+    //Add Post
+    public function addPost($ma_lop)
+    {
+        $lop = Lop::where('ma_lop', "$ma_lop")->first();
+        return view('teachers/classrooms/add-post', compact('lop'));
+    }
+    
+    public function addPost_POST(Request $req, $ma_lop)
+    {
+        $lop = Lop::where('ma_lop', "$ma_lop")->first();
+
+        $post = new BaiDang();
+        $post->loai_bai_dang_id = $req->loai_bai_dang_id;
+        $post->ma_lop = $ma_lop;
+        $post->tieu_de = $req->tieu_de;
+        $post->noi_dung = $req->noi_dung;
+        $post->tap_tin_id = $req->tap_tin_id;
+        $post->ngay_dang = $req->ngay_dang;
+        $post->ngay_nop = $req->ngay_nop;
+        //$post->trang_thai = $req->trang_thai;
+        
+        if(empty($req->trang_thai))
+        {
+            $post->trang_thai = 0;
+        }        
+        else
+        {
+            $post->trang_thai = $req->trang_thai;
+        }
+
+        //dd($lop);
+
+        $post->save();
+        // return view('teachers/classrooms/add-post');
+        return redirect()->route('classroom-teacher-news',['ma_lop'=>$lop->ma_lop]);
+    }
+
+    //News (Trang Bài Đăng)
+    public function news($ma_lop)
+    {
+        $listPost = BaiDang::all();
+        $lop = Lop::where('ma_lop', "$ma_lop")->first();
+        return view('teachers/classrooms/news', compact('listPost', 'lop'));
     }
 }

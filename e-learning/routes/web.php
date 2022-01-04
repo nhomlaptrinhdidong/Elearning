@@ -95,6 +95,13 @@ Route::middleware('teacher')->prefix('teacher')->group(function () {
     Route::get('/student-detail/{username}/{ma_lop}', [TeacherController::class, 'studentDetail'])->name('student-detail-class');
     Route::get('/delete-student/{username}/{ma_lop}', [TeacherController::class, 'deleteStudent'])->name('delete-student-class');
     Route::post('/send-email/{ma_lop}', [TeacherController::class, 'sendEmail'])->name('send-email-class');
+
+    //Add Post
+    Route::get('/classroom/add-post/{ma_lop}', [TeacherController::class, 'addPost'])->name('classroom-teacher-addPost');
+    Route::post('/classroom/add-post/{ma_lop}', [TeacherController::class, 'addPost_POST'])->name('classroom-teacher-addPost_POST');
+
+    //News (Bài Đăng)
+    Route::get('/classroom/news/{ma_lop}', [TeacherController::class, 'news'])->name('classroom-teacher-news');
 });
 Route::get('auth/redirect/{provider}', [SocialController::class, 'redirect']);
 Route::get('callback/{provider}', [SocialController::class, 'callback'])->name('call-back');
