@@ -14,53 +14,59 @@
                 <option value="3" label="Thông Báo, Tài Liệu">
             </datalist>
         </tr> -->
-
         <!-- <tr>
             <th>Mã Lớp</th>
             <td><input type="text" placeholder="V8zcV5" name="ma_lop" value="V8zcV5" readonly /></td>
         </tr> -->
 
         <tr>
-            <th>Tiêu đề</th>
-            <td><input type="text" name="tieu_de" /></td>
+            <div class="form-group">
+                <label>Tiêu đề:</label>
+                <input type="text" class="form-control" name="tieu_de">
+            </div>
         </tr>
 
         <tr>
-            <th>Nội Dung</th>
-            <td><input type="text" name="noi_dung" /></td>
+            <div class="form-group">
+                <label for="usr">Nội dung:</label>
+                <input type="text" class="form-control" id="usr" name="noi_dung">
+            </div>
         </tr>
 
         <tr>
-            <th>Tập tin id</th>
-            <td><input type="text" name="tap_tin_id" /></td>
+            <div class="form-group">
+                <label for="usr">Tập tin:</label>
+                <input type="text" class="form-control" id="usr" name="tap_tin_id">
+            </div>
         </tr>
 
         <!-- <tr>
             <th>Ngày đăng</th>
             <td><input type="date" name="ngay_dang" value="data.now"/></td>
         </tr> -->
-
         <!-- <tr>
             <th>Ngày nộp</th>
             <td><input type="date" name="ngay_nop" /></td>
         </tr> -->
 
         <tr>
-            <th>Trạng thái</th>
-            <td><input type="checkbox" name="trang_thai" value="1"/></td>
+            <div class="form-group">
+                <th>Trạng thái</th>
+                <td><input type="checkbox" name="trang_thai" value="1" /></td>
+            </div>
         </tr>
+
+        </br>
 
         <!-- Nút Submit -->
         <tr>
             <th></th>
             <td><button type="submit">Đăng</button></td>
         </tr>
-    </label>
-    
-    <a href="{{ route('classroom-teacher-news', ['ma_lop' => $lop -> ma_lop]) }}">DS Bài Đăng</a>
+    </label></br>
 
-    <a href="{{ route('classroom-teacher-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a>
+    <a href="{{ route('classroom-teacher-news', ['ma_lop' => $lop -> ma_lop]) }}">DS Bài Đăng</a></br>
+    <a href="{{ route('classroom-teacher-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a></br>
 </form>
 
-<p>Thêm thông báo / tài liệu</p>
 @endsection

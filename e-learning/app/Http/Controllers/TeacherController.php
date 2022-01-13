@@ -240,7 +240,12 @@ class TeacherController extends Controller
     //News (Trang Bài Đăng)
     public function news($ma_lop)
     {
-        $listPost = BaiDang::all();
+        //$listPost = BaiDang::all();
+        $date = date(now());
+
+        $listPost = BaiDang::where('ma_lop', $ma_lop)->where('ngay_nop','>=',$date)->orWhere('ngay_nop',null)
+                           ->where('trang_thai', '1')->get();
+
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
         return view('teachers/classrooms/news', compact('listPost', 'lop'));
     }
