@@ -99,15 +99,30 @@ Route::middleware('teacher')->prefix('teacher')->group(function () {
     //Add Post
     Route::get('/classroom/add-post/{ma_lop}', [TeacherController::class, 'addPost'])->name('classroom-teacher-addPost');
     Route::post('/classroom/add-post/{ma_lop}', [TeacherController::class, 'addPost_POST'])->name('classroom-teacher-addPost_POST');
+    //Delete Post
+    Route::get('/classroom/delete-post/{id}/{ma_lop}', [TeacherController::class, 'deletePost'])->name('classroom-teacher-deletePost');
+    //Update Post
+    Route::get('/classroom/update-post/{id}/{ma_lop}', [TeacherController::class, 'updatePost'])->name('classroom-teacher-updatePost');
+    Route::post('/classroom/update-post/{id}/{ma_lop}', [TeacherController::class, 'updatePost_POST'])->name('classroom-teacher-updatePost_POST');
+
     //Add Exams
     Route::get('/classroom/add-exams/{ma_lop}', [TeacherController::class, 'addExams'])->name('classroom-teacher-addExams');
     Route::post('/classroom/add-exams/{ma_lop}', [TeacherController::class, 'addExams_POST'])->name('classroom-teacher-addExams_POST');
-    //Add Exams
-    Route::get('/classroom/add-worls/{ma_lop}', [TeacherController::class, 'addWorks'])->name('classroom-teacher-addWorks');
-    Route::post('/classroom/add-worls/{ma_lop}', [TeacherController::class, 'addWorks_POST'])->name('classroom-teacher-addWorks_POST');
-    //Delete Post
-    Route::get('/classroom/delete-post/{id}/{ma_lop}', [TeacherController::class, 'deletePost'])->name('classroom-teacher-deletePost');
+    //Delete Exams
+    Route::get('/classroom/delete-exams/{id}/{ma_lop}', [TeacherController::class, 'deleteExams'])->name('classroom-teacher-deleteExams');
+    //Update Exams
+    Route::get('/classroom/update-exams/{id}/{ma_lop}', [TeacherController::class, 'updateExams'])->name('classroom-teacher-updateExams');
+    Route::post('/classroom/update-exams/{id}/{ma_lop}', [TeacherController::class, 'updateExams_POST'])->name('classroom-teacher-updateExams_POST');
 
+    //Add Works
+    Route::get('/classroom/add-works/{ma_lop}', [TeacherController::class, 'addWorks'])->name('classroom-teacher-addWorks');
+    Route::post('/classroom/add-works/{ma_lop}', [TeacherController::class, 'addWorks_POST'])->name('classroom-teacher-addWorks_POST');
+    //Delete Works
+    Route::get('/classroom/delete-works/{id}/{ma_lop}', [TeacherController::class, 'deleteWorks'])->name('classroom-teacher-deleteWorks');
+    //Update Works
+    Route::get('/classroom/update-works/{id}/{ma_lop}', [TeacherController::class, 'updateWorks'])->name('classroom-teacher-updateWorks');
+    Route::post('/classroom/update-works/{id}/{ma_lop}', [TeacherController::class, 'updateWorks_POST'])->name('classroom-teacher-updateWorks_POST');
+    
     //News (Bài Đăng)
     Route::get('/classroom/news/{ma_lop}', [TeacherController::class, 'news'])->name('classroom-teacher-news');
 });

@@ -64,7 +64,7 @@
                     <th>Link đính kièm</th>
                     <th>Ngày đăng</th>
                     <th>Ngày nộp</th>
-                    <!-- <th>Trạng thái</th> -->
+                    <th>Trạng thái</th>
                     <th>Chức năng</th>
                 </tr>
             </thead>
@@ -81,13 +81,19 @@
                     <td>{{$post->tep_tin_id}}</td>
                     <td>{{$post->ngay_dang}}</td>
                     <td>{{$post->ngay_nop}}</td>
+                    @if($post->trang_thai == 1)
                     <!-- <td>{{$post->trang_thai}}</td> -->
-
+                    <td>Đang hiển thị</td>
+                    @endif
+                    @if($post->trang_thai == 0)
+                    <!-- <td>{{$post->trang_thai}}</td> -->
+                    <td>Đang ẩn</td>
+                    @endif
                     <!-- Xóa -->
                     <td>
                     <a href="{{ route('classroom-teacher-deletePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
                     <!-- Cập nhật -->
-
+                    <a href="{{ route('classroom-teacher-updatePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
                     </td>
                 @endif
     <!-- Kiểm tra -->
@@ -100,12 +106,19 @@
                     <td>{{$post->tep_tin_id}}</td>
                     <td>{{$post->ngay_dang}}</td>
                     <td>{{$post->ngay_nop}}</td>
+                    @if($post->trang_thai == 1)
                     <!-- <td>{{$post->trang_thai}}</td> -->
+                    <td>Đang hiển thị</td>
+                    @endif
+                    @if($post->trang_thai == 0)
+                    <!-- <td>{{$post->trang_thai}}</td> -->
+                    <td>Đang ẩn</td>
+                    @endif
                     <!-- Xóa -->
                     <td>
-                    <a href="{{ route('classroom-teacher-deletePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
+                    <a href="{{ route('classroom-teacher-deleteExams', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
                     <!-- Cập nhật -->
-                    
+                    <a href="{{ route('classroom-teacher-updateExams', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
                     </td>
                 @endif
     <!-- Bài Tập -->
@@ -118,12 +131,19 @@
                     <td>{{$post->tep_tin_id}}</td>
                     <td>{{$post->ngay_dang}}</td>
                     <td>{{$post->ngay_nop}}</td>
+                    @if($post->trang_thai == 1)
                     <!-- <td>{{$post->trang_thai}}</td> -->
+                    <td>Đang hiển thị</td>
+                    @endif
+                    @if($post->trang_thai == 0)
+                    <!-- <td>{{$post->trang_thai}}</td> -->
+                    <td>Đang ẩn</td>
+                    @endif
                     <!-- Xóa -->
                     <td>
-                    <a href="{{ route('classroom-teacher-deletePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
+                    <a href="{{ route('classroom-teacher-deleteWorks', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
                     <!-- Cập nhật -->
-                    
+                    <a href="{{ route('classroom-teacher-updateWorks', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
                     </td>
                 @endif
                 </tr>
