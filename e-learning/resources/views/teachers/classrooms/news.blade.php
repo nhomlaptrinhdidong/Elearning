@@ -65,11 +65,13 @@
                     <th>Ngày đăng</th>
                     <th>Ngày nộp</th>
                     <!-- <th>Trạng thái</th> -->
+                    <th>Chức năng</th>
                 </tr>
             </thead>
             @forelse($listPost as $post)
             <tbody>
                 <tr>
+    <!-- Thông báo -->
                 @if( $post->loai_bai_dang_id == 3)
                     <!-- <td>{{$post->id}}</td> -->
                     <td>Thông báo / Tài liệu</td>
@@ -80,7 +82,15 @@
                     <td>{{$post->ngay_dang}}</td>
                     <td>{{$post->ngay_nop}}</td>
                     <!-- <td>{{$post->trang_thai}}</td> -->
+
+                    <!-- Xóa -->
+                    <td>
+                    <a href="{{ route('classroom-teacher-deletePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
+                    <!-- Cập nhật -->
+
+                    </td>
                 @endif
+    <!-- Kiểm tra -->
                 @if($post->loai_bai_dang_id == 1)
                     <!-- <td>{{$post->id}}</td> -->
                     <td>Bài kiểm tra</td>
@@ -91,7 +101,14 @@
                     <td>{{$post->ngay_dang}}</td>
                     <td>{{$post->ngay_nop}}</td>
                     <!-- <td>{{$post->trang_thai}}</td> -->
+                    <!-- Xóa -->
+                    <td>
+                    <a href="{{ route('classroom-teacher-deletePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
+                    <!-- Cập nhật -->
+                    
+                    </td>
                 @endif
+    <!-- Bài Tập -->
                 @if($post->loai_bai_dang_id == 2)
                     <!-- <td>{{$post->id}}</td> -->
                     <td>Bài tập</td>
@@ -102,6 +119,12 @@
                     <td>{{$post->ngay_dang}}</td>
                     <td>{{$post->ngay_nop}}</td>
                     <!-- <td>{{$post->trang_thai}}</td> -->
+                    <!-- Xóa -->
+                    <td>
+                    <a href="{{ route('classroom-teacher-deletePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
+                    <!-- Cập nhật -->
+                    
+                    </td>
                 @endif
                 </tr>
                 @empty

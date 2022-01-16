@@ -22,21 +22,21 @@
         <tr>
             <div class="form-group">
                 <label>Tiêu đề:</label>
-                <input type="text" class="form-control" name="tieu_de">
+                <input type="text" class="form-control" name="tieu_de" required>
             </div>
         </tr>
 
         <tr>
             <div class="form-group">
                 <label for="usr">Nội dung:</label>
-                <input type="text" class="form-control" id="usr" name="noi_dung">
+                <input type="text" class="form-control" id="usr" name="noi_dung" required>
             </div>
         </tr>
 
         <tr>
             <div class="form-group">
                 <label for="usr">Tập tin:</label>
-                <input type="text" class="form-control" id="usr" name="tap_tin_id">
+                <input type="text" class="form-control" id="usr" name="tap_tin_id" required>
             </div>
         </tr>
 
@@ -52,7 +52,7 @@
         <tr>
             <div class="form-group">
                 <th>Trạng thái</th>
-                <td><input type="checkbox" name="trang_thai" value="1" /></td>
+                <td><input type="checkbox" name="trang_thai" value="1"/></td>
             </div>
         </tr>
 
@@ -61,7 +61,7 @@
         <!-- Nút Submit -->
         <tr>
             <th></th>
-            <td><button type="submit">Đăng</button></td>
+            <td><button class="btn btn-info" type="submit">Đăng</button></td>
         </tr>
     </label></br>
 

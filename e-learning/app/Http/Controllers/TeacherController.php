@@ -237,6 +237,19 @@ class TeacherController extends Controller
     }
     //Kết thúc thêm thông báo / tài liệu
 
+    /**Xóa */
+    public function deletePost($id, $ma_lop)
+    {
+        $deletePost = BaiDang::find($id);
+        if($deletePost == null)
+        {
+            return "Không tìm thấy bài đăng";
+        }
+        $deletePost->delete();
+        $lop = Lop::where('ma_lop', "$ma_lop")->first();
+        return redirect()->route('classroom-teacher-news', [ 'id'=>$deletePost->id, 'ma_lop'=>$lop->ma_lop]);
+    }
+
     //News (Trang Bài Đăng)
     public function news($ma_lop)
     {
