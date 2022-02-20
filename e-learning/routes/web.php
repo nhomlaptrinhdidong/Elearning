@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\CommentController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -125,6 +126,9 @@ Route::middleware('teacher')->prefix('teacher')->group(function () {
     
     //News (Bài Đăng)
     Route::get('/classroom/news/{ma_lop}', [TeacherController::class, 'news'])->name('classroom-teacher-news');
+
+    //Add Comment
+    Route::post('binhluan', [CommentController::class, 'postComment'])->name('classroom-teacher-comment_POST');
 });
 Route::get('auth/redirect/{provider}', [SocialController::class, 'redirect']);
 Route::get('callback/{provider}', [SocialController::class, 'callback'])->name('call-back');

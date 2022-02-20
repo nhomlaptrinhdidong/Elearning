@@ -47,7 +47,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container"
         <h2>Danh sách bài tập</h2>
         <a href="{{ route('classroom-teacher-addPost', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới thông báo / tài liệu</a></br>
         <a href="{{ route('classroom-teacher-addWorks', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới bài tập</a></br>
