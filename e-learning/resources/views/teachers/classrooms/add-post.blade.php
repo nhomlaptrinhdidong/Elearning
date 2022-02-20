@@ -36,7 +36,7 @@
         <tr>
             <div class="form-group">
                 <label for="usr">Tập tin:</label>
-                <input type="text" class="form-control" id="usr" name="tap_tin_id" required>
+                <input type="file" class="form-control" id="usr" name="tap_tin_id">
             </div>
         </tr>
 

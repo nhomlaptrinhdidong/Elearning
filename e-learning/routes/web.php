@@ -61,6 +61,37 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::post('/edit-profile',  [AdminController::class, 'saveEditProfile'])->name('save-edit-profile');
     Route::get('/reset-password', [AdminController::class, 'resetPassword'])->name('reset-admin-password');
     Route::post('/reset-password', [AdminController::class, 'savePassword'])->name('save-admin-password');
+
+    //Add Post
+    Route::get('/classroom/add-post/admin/{ma_lop}', [AdminController::class, 'addPost'])->name('classroom-Admin-addPost');
+    Route::post('/classroom/add-post/admin/{ma_lop}', [AdminController::class, 'addPost_POST'])->name('classroom-Admin-addPost_POST');
+    //Delete Post
+    Route::get('/classroom/delete-post/{id}/{ma_lop}', [AdminController::class, 'deletePost'])->name('classroom-Admin-deletePost');
+    //Update Post
+    Route::get('/classroom/update-post/{id}/{ma_lop}', [AdminController::class, 'updatePost'])->name('classroom-Admin-updatePost');
+    Route::post('/classroom/update-post/{id}/{ma_lop}', [AdminController::class, 'updatePost_POST'])->name('classroom-Admin-updatePost_POST');
+
+    //Add Exams
+    Route::get('/classroom/add-exams/{ma_lop}', [AdminController::class, 'addExams'])->name('classroom-Admin-addExams');
+    Route::post('/classroom/add-exams/{ma_lop}', [AdminController::class, 'addExams_POST'])->name('classroom-Admin-addExams_POST');
+    //Delete Exams
+    Route::get('/classroom/delete-exams/{id}/{ma_lop}', [AdminController::class, 'deleteExams'])->name('classroom-Admin-deleteExams');
+    //Update Exams
+    Route::get('/classroom/update-exams/{id}/{ma_lop}', [AdminController::class, 'updateExams'])->name('classroom-Admin-updateExams');
+    Route::post('/classroom/update-exams/{id}/{ma_lop}', [AdminController::class, 'updateExams_POST'])->name('classroom-Admin-updateExams_POST');
+
+    //Add Works
+    Route::get('/classroom/add-works/{ma_lop}', [AdminController::class, 'addWorks'])->name('classroom-Admin-addWorks');
+    Route::post('/classroom/add-works/{ma_lop}', [AdminController::class, 'addWorks_POST'])->name('classroom-Admin-addWorks_POST');
+    //Delete Works
+    Route::get('/classroom/delete-works/{id}/{ma_lop}', [AdminController::class, 'deleteWorks'])->name('classroom-Admin-deleteWorks');
+    //Update Works
+    Route::get('/classroom/update-works/{id}/{ma_lop}', [AdminController::class, 'updateWorks'])->name('classroom-Admin-updateWorks');
+    Route::post('/classroom/update-works/{id}/{ma_lop}', [AdminController::class, 'updateWorks_POST'])->name('classroom-Admin-updateWorks_POST');
+    
+    //News (Bài Đăng)
+    Route::get('/classroom/news/{ma_lop}', [AdminController::class, 'news'])->name('classroom-Admin-news');
+
 });
 
 Route::middleware('student')->prefix('student')->group(function () {

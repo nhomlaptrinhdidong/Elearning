@@ -1,33 +1,33 @@
-@extends('.layouts.teacher')
-@section('index-teacher')
-<form method="POST" action=" {{ route('classroom-teacher-updateWorks_POST', ['id'=>$updateWorks->id, 'ma_lop' => $lop -> ma_lop]) }} ">
+@extends('.layouts.admin')
+@section('add-class')
+<form method="POST" action=" {{ route('classroom-Admin-updateExams_POST', ['id'=>$updateExams->id, 'ma_lop' => $lop -> ma_lop]) }} ">
     @csrf
     <label>
         <tr>
             <div class="form-group">
                 <label>Tiêu đề:</label>
-                <input type="text" class="form-control" name="tieu_de" value="{{$updateWorks->tieu_de}}" required>
+                <input type="text" class="form-control" name="tieu_de" value="{{$updateExams->tieu_de}}" required>
             </div>
         </tr>
 
         <tr>
             <div class="form-group">
                 <label for="usr">Nội dung:</label>
-                <input type="text" class="form-control" id="usr" name="noi_dung" value="{{$updateWorks->noi_dung}}" required>
+                <input type="text" class="form-control" id="usr" name="noi_dung" value="{{$updateExams->noi_dung}}" required>
             </div>
         </tr>
 
         <tr>
             <div class="form-group">
                 <label for="usr">Tập tin:</label>
-                <input type="file" class="form-control" id="usr" name="tap_tin_id" value="{{$updateWorks->tap_tin_id}}">
+                <input type="file" class="form-control" id="usr" name="tap_tin_id" value="{{$updateExams->tap_tin_id}}">
             </div>
         </tr>
 
         <tr>
             <div class="form-group">
                 <label for="usr">Ngày nộp:</label>
-                <input type="date" class="form-control" id="usr" name="ngay_nop" value="{{$updateWorks->ngay_nop}}">
+                <input type="date" class="form-control" id="usr" name="ngay_nop" value="{{$updateExams->ngay_nop}}">
             </div>
         </tr>
 
@@ -47,8 +47,8 @@
         </tr>
     </label></br>
 
-    <a href="{{ route('classroom-teacher-news', ['ma_lop' => $lop -> ma_lop]) }}">DS Bài Đăng</a></br>
-    <a href="{{ route('classroom-teacher-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a></br>
+    <a href="{{ route('classroom-Admin-news', ['ma_lop' => $lop -> ma_lop]) }}">DS Bài Đăng</a></br>
+    <a href="{{ route('classroom-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a></br>
 </form>
 
 @endsection

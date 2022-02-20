@@ -216,7 +216,9 @@ class TeacherController extends Controller
         $post->ma_lop = $ma_lop;
         $post->tieu_de = $req->tieu_de;
         $post->noi_dung = $req->noi_dung;
-        $post->tap_tin_id = $req->tap_tin_id;
+        $uploadFile = $req->tap_tin_id;
+        //$uploadFile->store('images');
+        $post->tap_tin_id = $uploadFile;
         $post->ngay_dang = date(now());
         
         //$post->ngay_nop = $req->ngay_nop;
@@ -265,7 +267,9 @@ class TeacherController extends Controller
         $updatePost->ma_lop = $ma_lop;
         $updatePost->tieu_de = $req->tieu_de;
         $updatePost->noi_dung = $req->noi_dung;
-        $updatePost->tap_tin_id = $req->tap_tin_id;
+        $uploadFile = $req->tap_tin_id;
+        //$uploadFile->store('images');
+        $updatePost->tap_tin_id = $uploadFile;
         if(empty($req->trang_thai))
         {
             $updatePost->trang_thai = 0;
@@ -309,7 +313,9 @@ class TeacherController extends Controller
         $post->ma_lop = $ma_lop;
         $post->tieu_de = $req->tieu_de;
         $post->noi_dung = $req->noi_dung;
-        $post->tap_tin_id = $req->tap_tin_id;
+        $uploadFile = $req->tap_tin_id;
+        //$uploadFile->store('images');
+        $post->tap_tin_id = $uploadFile;
         $post->ngay_dang = date(now());
         $post->ngay_nop = $req->ngay_nop;
         //$post->trang_thai = $req->trang_thai;
@@ -357,7 +363,9 @@ class TeacherController extends Controller
         $updateExams->ma_lop = $ma_lop;
         $updateExams->tieu_de = $req->tieu_de;
         $updateExams->noi_dung = $req->noi_dung;
-        $updateExams->tap_tin_id = $req->tap_tin_id;
+        $uploadFile = $req->tap_tin_id;
+        //$uploadFile->store('images');
+        $updateExams->tap_tin_id = $uploadFile;
         $updateExams->ngay_nop = $req->ngay_nop;
         if(empty($req->trang_thai))
         {
@@ -389,7 +397,9 @@ class TeacherController extends Controller
         $post->ma_lop = $ma_lop;
         $post->tieu_de = $req->tieu_de;
         $post->noi_dung = $req->noi_dung;
-        $post->tap_tin_id = $req->tap_tin_id;
+        $uploadFile = $req->tap_tin_id;
+        //$uploadFile->store('images');
+        $post->tap_tin_id = $uploadFile;
         $post->ngay_dang = date(now());
         $post->ngay_nop = $req->ngay_nop;
         //$post->trang_thai = $req->trang_thai;
@@ -437,7 +447,9 @@ class TeacherController extends Controller
         $updateWorks->ma_lop = $ma_lop;
         $updateWorks->tieu_de = $req->tieu_de;
         $updateWorks->noi_dung = $req->noi_dung;
-        $updateWorks->tap_tin_id = $req->tap_tin_id;
+        $uploadFile = $req->tap_tin_id;
+        //$uploadFile->store('images');
+        $updateWorks->tap_tin_id = $uploadFile;
         $updateWorks->ngay_nop = $req->ngay_nop;
         if(empty($req->trang_thai))
         {

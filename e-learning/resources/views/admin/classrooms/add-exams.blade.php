@@ -1,58 +1,32 @@
-@extends('.layouts.teacher')
-@section('index-teacher')
-<form method="POST" action=" {{ route('classroom-teacher-addExams_POST', ['ma_lop' => $lop -> ma_lop]) }} ">
+@extends('.layouts.admin')
+@section('add-class')
+<form method="POST" action=" {{ route('classroom-Admin-addExams_POST', ['ma_lop' => $lop -> ma_lop]) }} ">
     @csrf
     <label>
-        <!-- <tr>
-            <th>Loại bài đăng</th>
-            <td><input type="text" name="loai_bai_dang_id" value="3" readonly/></td>
-
-            <input list="loaiBaiDang" name="loai_bai_dang_id">
-            <datalist id="loaiBaiDang">
-                <option value="1" label="Bài Tập">
-                <option value="2" label="Kiểm Tra">
-                <option value="3" label="Thông Báo, Tài Liệu">
-            </datalist>
-        </tr> -->
-
-        <!-- <tr>
-            <th>Mã Lớp</th>
-            <td><input type="text" placeholder="V8zcV5" name="ma_lop" value="V8zcV5" readonly /></td>
-        </tr> -->
-
         <tr>
             <div class="form-group">
                 <label>Tiêu đề:</label>
                 <input type="text" class="form-control" name="tieu_de" required>
             </div>
         </tr>
-
         <tr>
             <div class="form-group">
                 <label for="usr">Nội dung:</label>
                 <input type="text" class="form-control" id="usr" name="noi_dung" required>
             </div>
         </tr>
-
         <tr>
             <div class="form-group">
                 <label for="usr">Tập tin:</label>
                 <input type="file" class="form-control" id="usr" name="tap_tin_id">
             </div>
         </tr>
-
-        <!-- <tr>
-            <th>Ngày đăng</th>
-            <td><input type="date" name="ngay_dang" value="data.now"/></td>
-        </tr> -->
-
         <tr>
             <div class="form-group">
                 <label for="usr">Ngày nộp:</label>
                 <input type="date" class="form-control" id="usr" name="ngay_nop" required>
             </div>
         </tr>
-
         <tr>
             <div class="form-group">
                 <th>Trạng thái</th>
@@ -67,9 +41,8 @@
         </tr>
     </label>
     
-    <a href="{{ route('classroom-teacher-news', ['ma_lop' => $lop -> ma_lop]) }}">DS Bài Đăng</a>
-
-    <a href="{{ route('classroom-teacher-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a>
+    <a href="{{ route('classroom-Admin-news', ['ma_lop' => $lop -> ma_lop]) }}">DS Bài Đăng</a>
+    <a href="{{ route('classroom-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a>
 </form>
 
 <p>Thêm bài kiểm tra</p>

@@ -6,28 +6,28 @@
         <tr>
             <div class="form-group">
                 <label>Tiêu đề:</label>
-                <input type="text" class="form-control" name="tieu_de" required>
+                <input type="text" class="form-control" name="tieu_de" value="{{$updateExams->tieu_de}}" required>
             </div>
         </tr>
 
         <tr>
             <div class="form-group">
                 <label for="usr">Nội dung:</label>
-                <input type="text" class="form-control" id="usr" name="noi_dung" required>
+                <input type="text" class="form-control" id="usr" name="noi_dung" value="{{$updateExams->noi_dung}}" required>
             </div>
         </tr>
 
         <tr>
             <div class="form-group">
                 <label for="usr">Tập tin:</label>
-                <input type="text" class="form-control" id="usr" name="tap_tin_id" required>
+                <input type="file" class="form-control" id="usr" name="tap_tin_id" value="{{$updateExams->tap_tin_id}}">
             </div>
         </tr>
 
         <tr>
             <div class="form-group">
                 <label for="usr">Ngày nộp:</label>
-                <input type="date" class="form-control" id="usr" name="ngay_nop" required>
+                <input type="date" class="form-control" id="usr" name="ngay_nop" value="{{$updateExams->ngay_nop}}">
             </div>
         </tr>
 

@@ -1,6 +1,6 @@
-@extends('.layouts.teacher')
-@section('index-teacher')
-<form method="POST" action=" {{ route('classroom-teacher-updateWorks_POST', ['id'=>$updateWorks->id, 'ma_lop' => $lop -> ma_lop]) }} ">
+@extends('.layouts.admin')
+@section('add-class')
+<form method="POST" action=" {{ route('classroom-Admin-updateWorks_POST', ['id'=>$updateWorks->id, 'ma_lop' => $lop -> ma_lop]) }} ">
     @csrf
     <label>
         <tr>
@@ -47,8 +47,7 @@
         </tr>
     </label></br>
 
-    <a href="{{ route('classroom-teacher-news', ['ma_lop' => $lop -> ma_lop]) }}">DS Bài Đăng</a></br>
-    <a href="{{ route('classroom-teacher-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a></br>
+    <a href="{{ route('classroom-Admin-news', ['ma_lop' => $lop -> ma_lop]) }}">DS Bài Đăng</a></br>
+    <a href="{{ route('classroom-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại</a></br>
 </form>
-
 @endsection

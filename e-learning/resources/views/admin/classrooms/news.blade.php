@@ -1,11 +1,11 @@
-@extends('.layouts.teacher')
-@section('index-teacher')
+@extends('.layouts.admin')
+@section('add-class')
 
 <div class="content-right--post">
-<a href="{{ route('classroom-teacher-addPost', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới thông báo / tài liệu</a></br>
-<a href="{{ route('classroom-teacher-addWorks', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới bài tập</a></br>
-<a href="{{ route('classroom-teacher-addExams', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới bài kiểm tra</a></br>
-<a href="{{ route('classroom-teacher-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại lớp</a></br>
+<a href="{{ route('classroom-Admin-addPost', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới thông báo / tài liệu</a></br>
+<a href="{{ route('classroom-Admin-addWorks', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới bài tập</a></br>
+<a href="{{ route('classroom-Admin-addExams', ['ma_lop' => $lop -> ma_lop])}}">Thêm mới bài kiểm tra</a></br>
+<a href="{{ route('classroom-detail', ['ma_lop' => $lop -> ma_lop]) }}">Quay lại lớp</a></br>
     @foreach($listPost as $post)
     <div class="content-right--items">
         <div class="content-right--sub">
@@ -26,7 +26,32 @@
                 <p class="description-timing">{{$post->ngay_dang}}</p>
             </div>
         </div>
-        <div class="content-right--tab"><i class="fas fa-ellipsis-v"></i></div>
+        <div class="content-right--tab">
+        @if( $post->loai_bai_dang_id == 3)
+        <!-- Xóa -->
+        <p>
+            <a href="{{ route('classroom-Admin-deletePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
+            <!-- Cập nhật -->
+            <a href="{{ route('classroom-Admin-updatePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
+        </p>
+        @endif
+        @if( $post->loai_bai_dang_id == 2)
+        <!-- Xóa -->
+        <p>
+            <a href="{{ route('classroom-Admin-deleteWorks', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
+            <!-- Cập nhật -->
+            <a href="{{ route('classroom-Admin-updateWorks', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
+        </p>
+        @endif
+        @if( $post->loai_bai_dang_id == 1)
+        <!-- Xóa -->
+        <p>
+            <a href="{{ route('classroom-Admin-deleteExams', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
+            <!-- Cập nhật -->
+            <a href="{{ route('classroom-Admin-updateExams', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
+        </p>
+        @endif
+        </div>
     </div>
     <div class="content-description">
         <!-- <td>{{$post->id}}</td> -->
@@ -50,30 +75,6 @@
         <p>Trạng thái: Đang ẩn</p>
         @endif
 
-        @if( $post->loai_bai_dang_id == 3)
-        <!-- Xóa -->
-        <p>
-            <a href="{{ route('classroom-teacher-deletePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
-            <!-- Cập nhật -->
-            <a href="{{ route('classroom-teacher-updatePost', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
-        </p>
-        @endif
-        @if( $post->loai_bai_dang_id == 2)
-        <!-- Xóa -->
-        <p>
-            <a href="{{ route('classroom-teacher-deleteWorks', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
-            <!-- Cập nhật -->
-            <a href="{{ route('classroom-teacher-updateWorks', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
-        </p>
-        @endif
-        @if( $post->loai_bai_dang_id == 1)
-        <!-- Xóa -->
-        <p>
-            <a href="{{ route('classroom-teacher-deleteExams', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Xóa</a></br>
-            <!-- Cập nhật -->
-            <a href="{{ route('classroom-teacher-updateExams', ['id' => $post -> id, 'ma_lop' => $lop -> ma_lop]) }}">Cập nhật</a></br>
-        </p>
-        @endif
     </div>
     <form class="content-right--comment">
         <img src="{{asset('img/logo.png')}}" height="30px" width="30px" alt="img-User">
