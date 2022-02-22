@@ -8,8 +8,21 @@
 
                 <div class="header__center">
                     <a href="#" class="active">Home</a>
-                    <a href="#">Bài tập trên lớp</a>
-                    <a href={{ route('classroom-teacher-all-members', ['ma_lop' => $dsClassroom->ma_lop]) }}>Members</a>
+                                        <!-- <a href="#">Bài tập trên lớp</a> -->
+                    <a href={{ route('classroom-teacher-news', ['ma_lop' => $dsClassroom->ma_lop]) }}>Bài tập trên lớp</a>
+                    <a href={{route('classroom-teacher-all-members', ['ma_lop'=>$dsClassroom->ma_lop])}}>Members</a>
+                    <!--Add Post-->
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <p>Thêm thông báo/Bài Tập/Bài Kiểm Tra</p>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href={{ route('classroom-teacher-addPost', ['ma_lop' => $dsClassroom->ma_lop] ) }}><i class="far fa-bell"></i> Thông Báo</a>
+                        <a class="dropdown-item" href={{ route('classroom-teacher-addWorks', ['ma_lop' => $dsClassroom->ma_lop] ) }}><i class="fas fa-home"></i> Bài Tập</a>
+                        <a class="dropdown-item" href={{ route('classroom-teacher-addExams', ['ma_lop' => $dsClassroom->ma_lop] ) }}><i class="fas fa-check-double"></i> Bài Kiểm Tra</a>
+                    </div>
+                </div>
+                <!--End Add Post-->
                 </div>
 
             </div>
