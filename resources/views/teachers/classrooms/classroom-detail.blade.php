@@ -72,15 +72,7 @@
                                     <p>- LT: Học bù vào thứ Năm (16/12) từ 6h30 - 8h55</p>
                                     <p>- TH: Học bù vào thứ Năm (16/12) từ 9h05 - 11h30</p>
                                 </div>
-                                <form class="content-right--comment" action="{{ route('classroom-teacher-comment_POST',['ma_lop'=>$dsClassroom->ma_lop]) }}" method="POST">
-                                @csrf
-                                <img src="{{ asset('img/logo.png') }}" height="30px" width="30px" alt="img-User">
-                                <div>
-                                    <input type="text" placeholder="Thêm nhận xét trong lớp học..">
-                                    <input type="text" placeholder="Thêm nhận xét trong lớp học.." name="binh_luan">
-                                    <button type="submit"><i class="far fa-paper-plane"></i></button>
-                                </div>
-                            </form>
+
                             </div>
                             <a href="exercises.html" class="content-right--items">
                                 <div class="content-right--sub">
