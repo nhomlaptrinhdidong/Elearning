@@ -190,8 +190,13 @@ class AdminController extends Controller
     }
     public function classroomDetail($ma_lop)
     {
+        // $dsClassroom = Lop::where('ma_lop', $ma_lop)->first();
+        // return view('admin/classrooms/classroom-detail', compact('dsClassroom'));
+
         $dsClassroom = Lop::where('ma_lop', $ma_lop)->first();
-        return view('admin/classrooms/classroom-detail', compact('dsClassroom'));
+        $date = date(now());
+        $listPost = BaiDang::where('ma_lop', $ma_lop)->get();
+        return view('admin/classrooms/classroom-detail', compact('listPost', 'dsClassroom'));
     }
     public function allMembers($ma_lop)
     {
@@ -289,7 +294,7 @@ class AdminController extends Controller
         }
 
         $post->save();
-        return redirect()->route('classroom-Admin-news',['ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail',['ma_lop'=>$lop->ma_lop]);
     }
     //Kết thúc thêm thông báo / tài liệu
 
@@ -303,7 +308,7 @@ class AdminController extends Controller
         }
         $deletePost->delete();
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
-        return redirect()->route('classroom-Admin-news', [ 'id'=>$deletePost->id, 'ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail', [ 'id'=>$deletePost->id, 'ma_lop'=>$lop->ma_lop]);
     }
     /**Cập nhật thông báo - GET*/
     public function updatePost($id, $ma_lop)
@@ -335,7 +340,7 @@ class AdminController extends Controller
         $updatePost->save();
         
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
-        return redirect()->route('classroom-Admin-news', [ 'id'=>$updatePost->id, 'ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail', [ 'id'=>$updatePost->id, 'ma_lop'=>$lop->ma_lop]);
     }
 
     //News (Trang Bài Đăng)
@@ -381,7 +386,7 @@ class AdminController extends Controller
             $post->trang_thai = $req->trang_thai;
         }
         $post->save();
-        return redirect()->route('classroom-Admin-news',['ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail',['ma_lop'=>$lop->ma_lop]);
     }
     //Kết thúc thêm bài kiểm tra
 
@@ -395,7 +400,7 @@ class AdminController extends Controller
         }
         $deleteExams->delete();
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
-        return redirect()->route('classroom-Admin-news', [ 'id'=>$deleteExams->id, 'ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail', [ 'id'=>$deleteExams->id, 'ma_lop'=>$lop->ma_lop]);
     }
     /**Cập nhật bài kiểm tra - GET*/
     public function updateExams($id, $ma_lop)
@@ -427,7 +432,7 @@ class AdminController extends Controller
         $updateExams->save();
         
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
-        return redirect()->route('classroom-Admin-news', [ 'id'=>$updateExams->id, 'ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail', [ 'id'=>$updateExams->id, 'ma_lop'=>$lop->ma_lop]);
     }
 
     //Thêm bài tập
@@ -460,7 +465,7 @@ class AdminController extends Controller
             $post->trang_thai = $req->trang_thai;
         }
         $post->save();
-        return redirect()->route('classroom-Admin-news',['ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail',['ma_lop'=>$lop->ma_lop]);
     }
     //Kết thúc thêm bài tập
 
@@ -474,7 +479,7 @@ class AdminController extends Controller
         }
         $deleteWorks->delete();
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
-        return redirect()->route('classroom-Admin-news', [ 'id'=>$deleteWorks->id, 'ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail', [ 'id'=>$deleteWorks->id, 'ma_lop'=>$lop->ma_lop]);
     }
     /**Cập nhật bài tập - GET*/
     public function updateWorks($id, $ma_lop)
@@ -506,7 +511,7 @@ class AdminController extends Controller
         $updateWorks->save();
         
         $lop = Lop::where('ma_lop', "$ma_lop")->first();
-        return redirect()->route('classroom-Admin-news', [ 'id'=>$updateWorks->id, 'ma_lop'=>$lop->ma_lop]);
+        return redirect()->route('classroom-detail', [ 'id'=>$updateWorks->id, 'ma_lop'=>$lop->ma_lop]);
     }
     //End 16/2
 }

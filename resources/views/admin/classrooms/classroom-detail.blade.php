@@ -5,12 +5,12 @@
         <!--Header End-->
         <!--Container Page Start-->
         <div class="container-center">
-                <div class="header__center">
-                    <a href="#" class="active">Home</a>
-                    <!-- <a href="#">Bài tập trên lớp</a> -->
-                    <a href={{ route('classroom-Admin-news', ['ma_lop' => $dsClassroom->ma_lop]) }}>Bài tập trên lớp</a>
-                    <a href={{route('all-members', ['ma_lop'=>$dsClassroom->ma_lop])}}>Members</a>
-                    <!--Add Post-->
+            <div class="header__center">
+                <a href="#" class="active">Home</a>
+                <!-- <a href="#">Bài tập trên lớp</a> -->
+                <!-- <a href={{ route('classroom-Admin-news', ['ma_lop' => $dsClassroom->ma_lop]) }}>Bài tập trên lớp</a> -->
+                <a href={{route('all-members', ['ma_lop'=>$dsClassroom->ma_lop])}}>Members</a>
+                <!--Add Post-->
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <p>Thêm thông báo/Bài Tập/Bài Kiểm Tra</p>
@@ -22,126 +22,96 @@
                     </div>
                 </div>
                 <!--End Add Post-->
-                
-                </div>
-                
-        </div>
-        <div class="container container-body">
 
-        <div class="container-center">
-            <div class="background-heading">
-                <img  class="background-heading" src="{{asset('img/classrooms/'.$dsClassroom->banner.'')}}" alt="">
+            </div>
+
+        </div>
+        <div class="content-right--post">
+            <!-- <a href="{{ route('classroom-Admin-addPost', ['ma_lop' => $dsClassroom -> ma_lop])}}">Thêm mới thông báo / tài liệu</a></br>
+            <a href="{{ route('classroom-Admin-addWorks', ['ma_lop' => $dsClassroom -> ma_lop])}}">Thêm mới bài tập</a></br>
+            <a href="{{ route('classroom-Admin-addExams', ['ma_lop' => $dsClassroom -> ma_lop])}}">Thêm mới bài kiểm tra</a></br>
+            <a href="{{ route('classroom-detail', ['ma_lop' => $dsClassroom -> ma_lop]) }}">Quay lại lớp</a></br> -->
+            @foreach($listPost as $post)
+            <div class="content-right--items">
+                <div class="content-right--sub">
+                    <div class="logo">
+                        <i class="far fa-calendar"></i>
+                    </div>
+
+                    <div class="description">
+                        @if( $post->loai_bai_dang_id == 3)
+                        <p class="description-heading">Thông báo / Tài liệu</p>
+                        @endif
+                        @if( $post->loai_bai_dang_id == 2)
+                        <p class="description-heading">Bài tập</p>
+                        @endif
+                        @if( $post->loai_bai_dang_id == 1)
+                        <p class="description-heading">Bài kiểm tra</p>
+                        @endif
+                        <p class="description-timing">{{$post->ngay_dang}}</p>
+                    </div>
+                </div>
+                <div class="content-right--tab">
+                    @if( $post->loai_bai_dang_id == 3)
+                    <!-- Xóa -->
+                    <p>
+                        <a href="{{ route('classroom-Admin-deletePost', ['id' => $post -> id, 'ma_lop' => $dsClassroom -> ma_lop]) }}">Xóa</a></br>
+                        <!-- Cập nhật -->
+                        <a href="{{ route('classroom-Admin-updatePost', ['id' => $post -> id, 'ma_lop' => $dsClassroom -> ma_lop]) }}">Cập nhật</a></br>
+                    </p>
+                    @endif
+                    @if( $post->loai_bai_dang_id == 2)
+                    <!-- Xóa -->
+                    <p>
+                        <a href="{{ route('classroom-Admin-deleteWorks', ['id' => $post -> id, 'ma_lop' => $dsClassroom -> ma_lop]) }}">Xóa</a></br>
+                        <!-- Cập nhật -->
+                        <a href="{{ route('classroom-Admin-updateWorks', ['id' => $post -> id, 'ma_lop' => $dsClassroom -> ma_lop]) }}">Cập nhật</a></br>
+                    </p>
+                    @endif
+                    @if( $post->loai_bai_dang_id == 1)
+                    <!-- Xóa -->
+                    <p>
+                        <a href="{{ route('classroom-Admin-deleteExams', ['id' => $post -> id, 'ma_lop' => $dsClassroom -> ma_lop]) }}">Xóa</a></br>
+                        <!-- Cập nhật -->
+                        <a href="{{ route('classroom-Admin-updateExams', ['id' => $post -> id, 'ma_lop' => $dsClassroom -> ma_lop]) }}">Cập nhật</a></br>
+                    </p>
+                    @endif
+                </div>
+            </div>
+            <div class="content-description">
+                <!-- <td>{{$post->id}}</td> -->
+                <p>Mã lớp: {{$post->ma_lop}}</p>
+                <p>Tiêu đề: {{$post->tieu_de}}</p>
+                <p>Nội dung: {{$post->noi_dung}}</p>
+                <p>Tệp đính kèm: {{$post->tep_tin_id}}</p>
+                @if( $post->loai_bai_dang_id == 2)
+                <p>Ngày nộp bài tập: {{$post->ngay_nop}}</p>
+                @endif
+                @if( $post->loai_bai_dang_id == 2)
+                <p>Ngày nộp bài kiểm tra: {{$post->ngay_nop}}</p>
+                @endif
+
+                @if($post->trang_thai == 1)
+                <!-- <td>{{$post->trang_thai}}</td> -->
+                <p>Trạng thái: Đang hiển thị</p>
+                @endif
+                @if($post->trang_thai == 0)
+                <!-- <td>{{$post->trang_thai}}</td> -->
+                <p>Trạng thái: Đang ẩn</p>
+                @endif
+
+            </div>
+            <form class="content-right--comment">
+                <img src="{{asset('img/logo.png')}}" height="30px" width="30px" alt="img-User">
                 <div>
-                    <h4>{{$dsClassroom->ten_lop}}</h4>
-                    <p>{{$dsClassroom->mo_ta}}</p>
+                    <input type="text" placeholder="Thêm nhận xét trong lớp học..">
+                    <button type="submit"><i class="far fa-paper-plane"></i></button>
                 </div>
-            </div>
-            <div class="content">
-                <div class="content-left">
-                    <p>Sắp đến hạn</p>
-                    <p>Tuyệt vời, không có bài tập nào sắp đến hạn!</p>
-                    <a href="#">Xem tất cả</a>
-                </div>
-                <div class="content-right">
-                    <div href="#" class="content-right--add">
-                        <img src="{{asset('img/logo.png')}}" height="30px" width="30px" alt="img-User">
-                        <p>Thông báo nội dung nào đó cho lớp học của bạn</p>
-                    </div>
-                    <div class="content-right--post">
-                        <div class="content-right--items">
-                            <div class="content-right--sub">
-                                <div class="logo">
-                                    <i class="far fa-calendar"></i>
-                                </div>
-
-                                <div class="description">
-                                    <p class="description-heading">Dương Hữu Phước</p>
-                                    <p class="description-timing">Hôm qua</p>
-                                </div>
-                            </div>
-                            <div class="content-right--tab"><i class="fas fa-ellipsis-v"></i></div>
-                        </div>
-                        <div class="content-description">
-                            <p>Chào các bạn,</p>
-                            <p>Hiện tại công việc gia đình thầy vẫn chưa giải quyết xong, do đó buổi học TH chiều nay
-                                chúng ta sẽ nghỉ nhé.</p>
-
-                            <p>Cả 2 buổi LT và TH thầy sẽ dạy bù vào tuần sau (tuần ôn tập), dự kiến:</p>
-                            <p>- LT: Học bù vào thứ Năm (16/12) từ 6h30 - 8h55</p>
-                            <p>- TH: Học bù vào thứ Năm (16/12) từ 9h05 - 11h30</p>
-                        </div>
-                        <form class="content-right--comment">
-                            <img src="{{asset('img/logo.png')}}" height="30px" width="30px" alt="img-User">
-                            <div>
-                                <input type="text" placeholder="Thêm nhận xét trong lớp học..">
-                                <button type="submit"><i class="far fa-paper-plane"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                    <a href="exercises.html" class="content-right--items">
-                        <div class="content-right--sub">
-                            <div class="logo">
-                                <i class="far fa-calendar"></i>
-                            </div>
-
-                            <div class="description">
-                                <p class="description-heading">Dương H. Phước đã đăng một bài tập mới: Kiểm tra LT giữa
-                                </p>
-                                <p class="description-timing">10 th 12</p>
-                            </div>
-                        </div>
-                        <div class="content-right--tab"><i class="fas fa-ellipsis-v"></i></div>
-                    </a>
-                    <a href="exercises.html" class="content-right--items">
-                        <div class="content-right--sub">
-                            <div class="logo">
-                                <i class="far fa-calendar"></i>
-                            </div>
-                            <div class="description">
-                                <p class="description-heading">Dương H. Phước đã đăng một bài tập mới: Kiểm tra LT lần 3
-                                </p>
-                                <p class="description-timing">7 th 12</p>
-                            </div>
-                        </div>
-                        <div class="content-right--tab"><i class="fas fa-ellipsis-v"></i></div>
-                    </a>
-                    <a href="exercises.html" class="content-right--items">
-                        <div class="content-right--sub">
-                            <div class="logo">
-                                <i class="far fa-calendar"></i>
-                            </div>
-
-                            <div class="description">
-                                <p class="description-heading">Dương H. Phước đã đăng một bài tập mới: Kiểm tra LT lần 2
-
-                                </p>
-                                <p class="description-timing">11 th 11</p>
-                            </div>
-                        </div>
-                        <div class="content-right--tab"><i class="fas fa-ellipsis-v"></i></div>
-                    </a>
-                    <a href="exercises.html" class="content-right--items">
-                        <div class="content-right--sub">
-                            <div class="logo">
-                                <i class="far fa-calendar"></i>
-                            </div>
-
-                            <div class="description">
-                                <p class="description-heading">Dương H. Phước đã đăng một bài tập mới: Kiểm tra LT lần 1
-                                </p>
-                                <p class="description-timing">23 th 10</p>
-                            </div>
-                        </div>
-                        <div class="content-right--tab"><i class="fas fa-ellipsis-v"></i></div>
-                    </a>
-                </div>
-            </div>
+            </form>
+            @endforeach
         </div>
-    </div>
-    <!--Container Page End-->
+
     </div>
 
-</div>
 
-  
-@endsection
+    @endsection

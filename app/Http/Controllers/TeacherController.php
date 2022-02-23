@@ -66,8 +66,19 @@ class TeacherController extends Controller
     }
     public function classroomDetail($ma_lop)
     {
+        // $dsClassroom = Lop::where('ma_lop', $ma_lop)->first();
+        // return view('teachers/classrooms/classroom-detail', compact('dsClassroom'));
+
+        // $date = date(now());
+        // $listPost = BaiDang::where('ma_lop', $ma_lop)->get();
+        // $lop = Lop::where('ma_lop', "$ma_lop")->first();
+        // return view('teachers/classrooms/news', compact('listPost', 'lop'));
+
         $dsClassroom = Lop::where('ma_lop', $ma_lop)->first();
-        return view('teachers/classrooms/classroom-detail', compact('dsClassroom'));
+        $date = date(now());
+        $listPost = BaiDang::where('ma_lop', $ma_lop)->get();
+        // $lop = Lop::where('ma_lop', "$ma_lop")->first();
+        return view('teachers/classrooms/classroom-detail', compact('listPost', 'dsClassroom'));
     }
     public function studentDetail($username, $ma_lop)
     {
@@ -234,7 +245,7 @@ public function addPost_POST(Request $req, $ma_lop)
     //dd($lop);
     $post->save();
     // return view('teachers/classrooms/add-post');
-    return redirect()->route('classroom-teacher-news',['ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail',['ma_lop'=>$lop->ma_lop]);
 }
 //Kết thúc thêm thông báo / tài liệu
 
@@ -248,7 +259,7 @@ public function deletePost($id, $ma_lop)
     }
     $deletePost->delete();
     $lop = Lop::where('ma_lop', "$ma_lop")->first();
-    return redirect()->route('classroom-teacher-news', [ 'id'=>$deletePost->id, 'ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail', [ 'id'=>$deletePost->id, 'ma_lop'=>$lop->ma_lop]);
 }
 /**Cập nhật thông báo - GET*/
 public function updatePost($id, $ma_lop)
@@ -280,7 +291,7 @@ public function updatePost_POST($id, $ma_lop, Request $req)
     $updatePost->save();
     
     $lop = Lop::where('ma_lop', "$ma_lop")->first();
-    return redirect()->route('classroom-teacher-news', [ 'id'=>$updatePost->id, 'ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail', [ 'id'=>$updatePost->id, 'ma_lop'=>$lop->ma_lop]);
 }
 
 //News (Trang Bài Đăng)
@@ -330,7 +341,7 @@ public function addExams_POST(Request $req, $ma_lop)
     //dd($lop);
     $post->save();
     // return view('teachers/classrooms/add-post');
-    return redirect()->route('classroom-teacher-news',['ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail',['ma_lop'=>$lop->ma_lop]);
 }
 //Kết thúc thêm bài kiểm tra
 
@@ -344,7 +355,7 @@ public function deleteExams($id, $ma_lop)
     }
     $deleteExams->delete();
     $lop = Lop::where('ma_lop', "$ma_lop")->first();
-    return redirect()->route('classroom-teacher-news', [ 'id'=>$deleteExams->id, 'ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail', [ 'id'=>$deleteExams->id, 'ma_lop'=>$lop->ma_lop]);
 }
 /**Cập nhật bài kiểm tra - GET*/
 public function updateExams($id, $ma_lop)
@@ -377,7 +388,7 @@ public function updateExams_POST($id, $ma_lop, Request $req)
     $updateExams->save();
     
     $lop = Lop::where('ma_lop', "$ma_lop")->first();
-    return redirect()->route('classroom-teacher-news', [ 'id'=>$updateExams->id, 'ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail', [ 'id'=>$updateExams->id, 'ma_lop'=>$lop->ma_lop]);
 }
 
 //Thêm bài tập
@@ -414,7 +425,7 @@ public function addWorks_POST(Request $req, $ma_lop)
     //dd($lop);
     $post->save();
     // return view('teachers/classrooms/add-post');
-    return redirect()->route('classroom-teacher-news',['ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail',['ma_lop'=>$lop->ma_lop]);
 }
 //Kết thúc thêm bài tập
 
@@ -428,7 +439,7 @@ public function deleteWorks($id, $ma_lop)
     }
     $deleteWorks->delete();
     $lop = Lop::where('ma_lop', "$ma_lop")->first();
-    return redirect()->route('classroom-teacher-news', [ 'id'=>$deleteWorks->id, 'ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail', [ 'id'=>$deleteWorks->id, 'ma_lop'=>$lop->ma_lop]);
 }
 /**Cập nhật bài tập - GET*/
 public function updateWorks($id, $ma_lop)
@@ -461,7 +472,7 @@ public function updateWorks_POST($id, $ma_lop, Request $req)
     $updateWorks->save();
     
     $lop = Lop::where('ma_lop', "$ma_lop")->first();
-    return redirect()->route('classroom-teacher-news', [ 'id'=>$updateWorks->id, 'ma_lop'=>$lop->ma_lop]);
+    return redirect()->route('classroom-teacher-detail', [ 'id'=>$updateWorks->id, 'ma_lop'=>$lop->ma_lop]);
 }
 }
 

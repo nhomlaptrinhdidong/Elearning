@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateAccountRequest;
 use App\Models\ChiTietLop;
 use App\Models\TaiKhoan;
 use App\Models\Lop;
+use App\Models\BaiDang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\View\Composers\ProfileComposer;
@@ -84,8 +85,13 @@ class StudentController extends Controller
 
     public function classroomDetail($ma_lop)
     {
+        // $dsClassroom = Lop::where('ma_lop', $ma_lop)->first();
+        // return view('students/classrooms/classroom-detail', compact('dsClassroom'));
+
         $dsClassroom = Lop::where('ma_lop', $ma_lop)->first();
-        return view('students/classrooms/classroom-detail', compact('dsClassroom'));
+        $date = date(now());
+        $listPost = BaiDang::where('ma_lop', $ma_lop)->get();
+        return view('students/classrooms/classroom-detail', compact('listPost', 'dsClassroom'));
     }
     public function deleteClassroom($ma_lop)
     {
